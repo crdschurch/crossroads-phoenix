@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="crossroads">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +9,11 @@
 
     <title>Hello CrossroadsClient!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/js/core.css") %>">
   </head>
 
-  <body>
+  <body ng-controller="coreController as app">
+    <ng-include src="'<%= static_path(@conn, "/images/cr.svg") %>'"> </ng-include>
     <div class="container">
       <header class="header">
         <nav role="navigation">
@@ -29,7 +31,32 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
+      <preloader full-screen='false'> </preloader>
     </div> <!-- /container -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.js" defer></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#defer=1" defer></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.cycle2.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.cycle2.scrollVert.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/ang.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/core.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/common.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/profile.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/trips.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/camps.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/give.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/media.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/search.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/govolunteer.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/formbuilder.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/childcare.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/formlybuilder.js") %>" defer></script>
+    <script src="<%= static_path(@conn, "/js/main.js") %>" defer></script>
+
   </body>
 </html>

@@ -11,7 +11,7 @@ config :crossroads_client, CrossroadsClient.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: []
+  watchers: [node: ["node_modules/gulp/bin/gulp.js", "build-dev"]]
 
 # Watch static and templates for browser reloading.
 config :crossroads_client, CrossroadsClient.Endpoint,
