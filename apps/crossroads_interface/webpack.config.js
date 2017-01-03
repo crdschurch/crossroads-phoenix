@@ -18,9 +18,25 @@ module.exports = {
       query: {
         presets: ["es2015"]
       }
-    }, {
+    },
+    {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract("style", "css", "sass")
+      loader: ExtractTextPlugin.extract(
+        "style",
+        "css!sass?includePaths[]=" + __dirname + "/node_modules!autoprefixer?browsers=last 2 versions"
+      )
+    },
+    {
+      test: /\.(png|jpg|jpeg|gif)$/,
+      loader: 'url?limit=10000'
+    },
+    {
+      test: /\.woff$/,
+      loader: 'url?limit=100000'
+    },
+    {
+      test: /\.svg$/,
+      loader: 'svg-sprite?' + JSON.stringify({angularBaseWorkaround: true })
     }]
   },
   plugins: [
