@@ -10,7 +10,7 @@ defmodule CrossroadsInterface.ErrorView do
       {:ok, 200, body} -> Enum.at(body["pages"], 0)["content"]
       {_, _, body} -> "<h2> #{body} </h2>"
     end
-    render("content_page.html", %{payload: payload})
+    render("content_page.html", %{payload: payload, conn: conn})
   end
 
   def render("500.html", _assigns) do

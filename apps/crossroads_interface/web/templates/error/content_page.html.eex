@@ -1,2 +1,11 @@
-<h2> Content Page </h2>
-<%= raw(assigns[:payload]) %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script·src="https://use.typekit.net/ccb3vpa.js"></script>
+    <script>try{Typekit.load({·async:·true·});}catch(e){}</script>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.css") %>">
+  </head>
+<body class="crds-legacy-styles">
+  <h2> Content Page </h2>
+  <%= raw(assigns[:payload]) %>
+</body>

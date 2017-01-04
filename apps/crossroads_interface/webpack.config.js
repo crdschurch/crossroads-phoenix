@@ -2,7 +2,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: ["./web/static/css/app.scss", "./web/static/js/app.js"],
+  entry: ["./web/static/css/main.scss", "./web/static/js/app.js"],
   output: {
     path: "./priv/static",
     filename: "js/app.js"
@@ -32,7 +32,11 @@ module.exports = {
     },
     {
       test: /\.woff$/,
-      loader: 'url?limit=100000'
+      loader: 'url-loader?limit=10000&minetype=application/font-woff'
+    },
+    {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'file-loader'
     },
     {
       test: /\.svg$/,
@@ -40,7 +44,7 @@ module.exports = {
     }]
   },
   plugins: [
-    new ExtractTextPlugin("css/app.css"),
+    new ExtractTextPlugin("css/main.css"),
     new CopyWebpackPlugin([{ from: "./web/static/assets" }])
   ]
 };
