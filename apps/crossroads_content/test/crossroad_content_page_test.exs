@@ -17,26 +17,26 @@ defmodule CrossroadsContentPagesTest do
   end
 
   test "get site config returns valid value" do
-    {result, status, body} = Pages.get_site_config(1)
+    {result, status, body} = Pages.get_site_config(2)
     assert status == 200
     assert result == :ok
-    assert body["siteConfig"]["id"] == 1
+    assert body["siteConfig"]["id"] == 2
   end
 
   test "get content blocks" do
     {result, status, body} = Pages.get_content_blocks
     assert status == 200
     assert result == :ok
-    contentBlocks = body["contentBlocks"]
-    assert Enum.at(contentBlocks, 0)["id"] == 1
+    content_blocks = body["contentBlocks"]
+    assert Enum.at(content_blocks, 0)["id"] == 1
   end
 
   test "get systempage for state" do
     {result, status, body} = Pages.get_system_page("login")
     assert status == 200
     assert result == :ok
-    systemPage = body["systemPages"]
-    assert Enum.at(systemPage, 0)["id"] == 57
+    system_page = body["systemPages"]
+    assert Enum.at(system_page, 0)["id"] == 57
   end
 
   test "get page with stage parameter" do
@@ -53,6 +53,5 @@ defmodule CrossroadsContentPagesTest do
     assert result = :ok
     page = Enum.at(body["pages"], 0)
     assert page["id"] == 268
-
   end
 end

@@ -17,7 +17,7 @@ defmodule CrossroadsInterface.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {CrossroadsInterface, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :crossroads_content]]
   end
 
   # Specifies which paths to compile per environment.
@@ -32,6 +32,7 @@ defmodule CrossroadsInterface.Mixfile do
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:crossroads_content, in_umbrella: true}]
   end
 end

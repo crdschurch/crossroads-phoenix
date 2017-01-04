@@ -5,6 +5,10 @@
 # is restricted to this project.
 use Mix.Config
 
+config :crossroads_content,
+  http: HTTPoison,
+  content_server: System.get_env("CRDS_CMS_ENDPOINT")
+
 # Configures the endpoint
 config :crossroads_interface, CrossroadsInterface.Endpoint,
   url: [host: "localhost"],

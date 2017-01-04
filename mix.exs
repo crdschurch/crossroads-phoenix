@@ -9,7 +9,9 @@ defmodule CrossroadsClient.Mixfile do
   end
 
   defp deps do
-    []
+    [{:mix_test_watch, "~> 0.2", only: :dev},
+     {:credo, "~> 0.5", only: [:dev, :test]},
+     {:dialyxir, "~> 0.4", only: [:dev], runtime: false}]
   end
 
 end

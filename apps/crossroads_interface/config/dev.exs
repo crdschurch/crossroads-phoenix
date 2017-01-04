@@ -1,5 +1,9 @@
 use Mix.Config
 
+config :crossroads_content,
+  http: HTTPoison,
+  content_server: System.get_env("CRDS_CMS_ENDPOINT")
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -8,7 +12,7 @@ use Mix.Config
 # with brunch.io to recompile .js and .css sources.
 config :crossroads_interface, CrossroadsInterface.Endpoint,
   http: [port: 4000],
-  debug_errors: true,
+  debug_errors: false,
   code_reloader: true,
   check_origin: false,
   watchers: [node: ["node_modules/webpack/bin/webpack.js", "--watch-stdin", "--progress", "--color"]]

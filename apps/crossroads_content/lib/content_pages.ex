@@ -1,4 +1,7 @@
 defmodule CrossroadsContent.Pages do
+  @moduledoc """
+    Handles getting all content from the CMS
+  """
   use GenServer
 
   require Logger
@@ -24,7 +27,7 @@ defmodule CrossroadsContent.Pages do
     GenServer.call(__MODULE__, {:system_page, state_name})
   end
 
-  @spec get_system_page(String.t) :: {:ok | :error, number, map}
+  @spec get_page(String.t, boolean) :: {:ok | :error, number, map}
   def get_page(url, stage) do
     GenServer.call(__MODULE__, {:page, url, stage})
   end
@@ -78,10 +81,9 @@ defmodule CrossroadsContent.Pages do
         {:ok, 200, Poison.decode!(body)}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, 500, %{error: reason}}
-      {_, _} -> 
+      {_, _} ->
         {:error, 0, %{error: "unknown response"}}
     end
     {:reply, response, state}
   end
-
 end
