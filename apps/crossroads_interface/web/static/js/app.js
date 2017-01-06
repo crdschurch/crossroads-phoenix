@@ -5,3 +5,4 @@ var files = require.context('../icons', false, /.svg$/);
 files.keys().forEach(files);
 
 //import socket from "./socket"
+import 'imgix.js'

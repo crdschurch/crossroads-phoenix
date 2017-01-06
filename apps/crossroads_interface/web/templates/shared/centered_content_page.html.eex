@@ -1,0 +1,13 @@
+<%= render CrossroadsInterface.SharedView, "header.html", %{content_blocks: @content_blocks } %>
+
+<div class="container main animated fadeIn">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div>
+        <%= raw(assigns[:payload]) %>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/container-->
+<%= render CrossroadsInterface.SharedView, "footer.html", %{content_blocks: @content_blocks } %>

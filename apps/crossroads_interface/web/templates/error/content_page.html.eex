@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script·src="https://use.typekit.net/ccb3vpa.js"></script>
-    <script>try{Typekit.load({·async:·true·});}catch(e){}</script>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.css") %>">
   </head>
-<body class="crds-legacy-styles">
-  <h2> Content Page </h2>
-  <%= raw(assigns[:payload]) %>
-</body>
+  <body class="crds-legacy-styles">
+    <%= render CrossroadsInterface.SharedView, determine_page_type(@page_type), %{content_blocks: @content_blocks, payload: @payload } %>
+
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+

@@ -1,0 +1,3 @@
+<footer class="hidden-print">
+  <%= raw(filter_content_blocks(@content_blocks, "footer")["content"]) %>
+</footer>
