@@ -1,7 +1,8 @@
 defmodule CrossroadsInterface.ErrorView do
   use CrossroadsInterface.Web, :view
-  alias CrossroadsContent.Pages
 
+  alias CrossroadsContent.Pages
+ 
   def render("404.html", assigns) do
     conn = assigns[:conn]
     params = conn.query_string
@@ -11,7 +12,7 @@ defmodule CrossroadsInterface.ErrorView do
         if Map.has_key?(first, "content") do
           payload = Map.get(first, "content")
           page_type = Map.get(first, "pageType", "CenteredContentPage")
-          render("content_page.html", %{payload: payload, page_type: page_type, content_blocks: content_blocks(), conn: conn})
+          render("content_page.html", %{payload: payload, page_type: page_type, content_blocks: ContentHelpers.content_blocks(), conn: conn})
         else
           # TODO render the CMS 404 page, not the Server Error Page
           render("500.html", assigns)
@@ -33,14 +34,6 @@ defmodule CrossroadsInterface.ErrorView do
   # template is found, let's render it as 500
   def template_not_found(_template, assigns) do
     render "500.html", assigns
-  end
-
-  @spec content_blocks :: [map]
-  defp content_blocks do
-    case Pages.get_content_blocks do
-      {:ok, 200, body} -> Map.get(body, "contentBlocks", [])
-      {_, _, _} -> []
-    end
   end
 
   @spec determine_page_type(String.t) :: String.t
