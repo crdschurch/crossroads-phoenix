@@ -13,7 +13,7 @@ There is a great [guide on the phoenix site](http://www.phoenixframework.org/doc
 This is environment specific, please visit [https://nodejs.org/en/](https://nodejs.org/en/) for instructions on installing on your operating system. 
 
 ## Install elixir dependencies
-Once your environment is setup, you can run `mix deps.get` from the root of the project to retrieve all the project dependenices. This is an [umbrella application](http://elixir-lang.org/getting-started/mix-otp/dependencies-and-umbrella-apps.html#umbrella-projects) so running `mix deps.get` in the root of the project will fetch dependencies for all of the apps in the [apps directory](./apps). Each application has it's own [mix file](http://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html) that describes it's own dependencies and running `mix deps.get` from the root of that app will only fetch the dependencies for that app. 
+Once your environment is setup, you can run `mix deps.get` from the root of the project to retrieve all the project dependenices. Then navigate into the folder of the sub project you want to work on and run `mix deps.get`. Each application has it's own [mix file](http://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html) that describes it's own dependencies and running `mix deps.get` from the root of that app will only fetch the dependencies for that app. 
 
 ## Install nodejs dependencies
 The only application that needs npm dependencies is the phoenix app located in [apps/crossroads-interface]('apps/crossroads_interface'). So you will run `npm i` while inside that directory. 
