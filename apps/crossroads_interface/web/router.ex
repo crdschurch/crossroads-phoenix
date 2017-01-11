@@ -14,7 +14,7 @@ defmodule CrossroadsInterface.Router do
   end
 
   scope "/", CrossroadsInterface do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", HomeController, :index
   end
