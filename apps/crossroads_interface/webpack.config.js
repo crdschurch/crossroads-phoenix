@@ -23,7 +23,7 @@ module.exports = {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract(
         "style",
-        "css!sass?includePaths[]=" + __dirname + "/node_modules!autoprefixer?browsers=last 2 versions"
+        "css!sass?includePaths[]=" + __dirname + "/node_modules!postcss-loader"
       )
     },
     {
