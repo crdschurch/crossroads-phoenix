@@ -1,9 +1,24 @@
 import CONSTANTS from 'crds-constants';
 import { SearchFilter, SearchFilterValue } from './searchFilter';
 
+function matchingFunction(result) {
+  // Guard against errors if group has no days.  Shouldn't happen, but just in case...
+  if (!result.meetingDay && !result.meetingTimeFrequency) {
+    return false;
+  }
+
+  let selectedMeetingDays = this.getSelectedValues();
+
+  let filtered = selectedMeetingDays.filter((a) => {
+    return a.getValue() === result.meetingDay || a.getValue() === result.meetingTimeFrequency;
+  });
+  return filtered !== undefined && filtered.length > 0;
+}
+
+
 export default class MeetingDayFilter extends SearchFilter {
   constructor(filterName, groupService, selectedFilters) {
-    super(filterName, [], this._matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.MEETING_DAY);
+    super(filterName, [], matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.MEETING_DAY);
 
     if (selectedFilters == null || selectedFilters == undefined)
       selectedFilters = "";
@@ -34,18 +49,5 @@ export default class MeetingDayFilter extends SearchFilter {
       });
   }
 
-  _matchingFunction(result) {
-    // Guard against errors if group has no days.  Shouldn't happen, but just in case...
-    if (!result.meetingDay && !result.meetingTimeFrequency) {
-      return false;
-    }
-
-    let selectedMeetingDays = this.getSelectedValues();
-
-    let filtered = selectedMeetingDays.filter((a) => {
-      return a.getValue() === result.meetingDay || a.getValue() === result.meetingTimeFrequency;
-    });
-
-    return filtered !== undefined && filtered.length > 0;
-  }
+  
 }

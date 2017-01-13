@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var constants = require('../../../constants');
+  var constants = require('constants');
 
   require('./creditCardInfo.html');
 

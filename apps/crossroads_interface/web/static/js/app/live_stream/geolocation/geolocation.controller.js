@@ -1,5 +1,5 @@
 import Geolocation from '../models/geolocation';
-import CONSTANTS from '../../constants';
+import CONSTANTS from 'constants';
 
 export default class GeolocationController {
   constructor(GeolocationService) {

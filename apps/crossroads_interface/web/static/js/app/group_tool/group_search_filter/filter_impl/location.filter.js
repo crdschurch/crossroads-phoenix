@@ -1,6 +1,16 @@
 import CONSTANTS from 'crds-constants';
 import {SearchFilter, SearchFilterValue} from './searchFilter'; 
 
+function matchingFunction(result) {
+  let selectedOnline = this.getSelectedValues();
+  
+  let filtered = selectedOnline.filter((v) => {
+    return result.hasAddress() === v.getValue(); 
+  });
+
+  return filtered !== undefined && filtered.length > 0;
+}
+
 export default class LocationFilter extends SearchFilter {
   constructor(filterName, selectedFilters) {
 
@@ -15,16 +25,7 @@ export default class LocationFilter extends SearchFilter {
       new SearchFilterValue('Online', false, onlineSelected)
     ];
 
-    super(filterName, filterValues, this._matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.GROUP_LOCATION);
+    super(filterName, filterValues, matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.GROUP_LOCATION);
   }
 
-  _matchingFunction(result) {
-    let selectedOnline = this.getSelectedValues();
-    
-    let filtered = selectedOnline.filter((v) => {
-      return result.hasAddress() === v.getValue(); 
-    });
-
-    return filtered !== undefined && filtered.length > 0;
-  }
 }

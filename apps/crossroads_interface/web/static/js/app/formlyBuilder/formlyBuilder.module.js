@@ -1,13 +1,14 @@
-(function() {
-  'use strict';
+import types from './formlyConfig/wrappers'
+import wrappers from './formlyConfig/wrappers'
+import composer from './fbComposer'
+import mapper from './fbMapper'
 
-  var MODULE = require('crds-constants').MODULES.FORMLY_BUILDER;
-  var ngModule = angular.module(MODULE, ['crossroads.core', 'crossroads.common']);
+var MODULE = require('crds-constants').MODULES.FORMLY_BUILDER;
+var ngModule = angular.module(MODULE, ['crossroads.core', 'crossroads.common']);
 
-  ngModule.run(require('./formlyBuilder.validationConfig'));
-  
-  require('./formlyConfig/types')(ngModule);
-  require('./formlyConfig/wrappers')(ngModule);
-  require('./fbComposer')(ngModule);
-  require('./fbMapper/')(ngModule);
-})(); 
+ngModule.run(require('./formlyBuilder.validationConfig'));
+
+types(ngModule);
+wrappers(ngModule);
+composer(ngModule);
+mapper(ngModule);

@@ -1,4 +1,7 @@
+import services from './services'
+import types from './types'
+
 export default ngModule => {
-  require('./services')(ngModule);
-  require('./types')(ngModule);
+  services(ngModule);
+  types(ngModule);
 } 

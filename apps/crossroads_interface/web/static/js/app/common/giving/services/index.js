@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var constants = require('../../../constants');
+  var constants = require('constants');
 
   angular.module(constants.MODULES.COMMON)
     .factory('GiveTransferService', require('./giveTransfer.service'))

@@ -1,4 +1,7 @@
+import compositions from './compositions'
+import elements from './elements'
+
 export default ngModule => {
-  require('./compositions')(ngModule);
-  require('./elements')(ngModule);
+  compositions(ngModule);
+  elements(ngModule);
 } 

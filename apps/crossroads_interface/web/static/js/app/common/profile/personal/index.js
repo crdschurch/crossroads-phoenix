@@ -2,7 +2,7 @@ import EmailChangeService from './emailChange.service.js';
 
 (function() {
   'use strict';
-  var constants = require('../../../constants');
+  var constants = require('constants');
 
   angular.module(constants.MODULES.COMMON).
     controller('ProfilePersonalController', require('./profilePersonal.controller'))

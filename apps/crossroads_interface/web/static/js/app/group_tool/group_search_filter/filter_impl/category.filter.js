@@ -1,9 +1,24 @@
 import CONSTANTS from 'crds-constants';
 import {SearchFilter, SearchFilterValue} from './searchFilter';
 
+function matchingFunction(result) {
+  // Guard against errors if group has no categories.  Shouldn't happen, but just in case...
+  if(!result.categories || !Array.isArray(result.categories)) {
+    return false;
+  }
+  
+  let selectedCategories = this.getSelectedValues();
+
+  let filtered = result.categories.filter((c) => {
+    return selectedCategories.find((s) => { return s.getValue() === c.categoryId; }) !== undefined;
+  });
+
+  return filtered !== undefined && filtered.length > 0;   
+}
+
 export default class CategoryFilter extends SearchFilter {
   constructor(filterName, groupService, selectedFilters) {
-    super(filterName, [], this._matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.GROUP_CATEGORY);
+    super(filterName, [], matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.GROUP_CATEGORY);
 
     if (selectedFilters == null || selectedFilters == undefined)
       selectedFilters = "";
@@ -23,20 +38,5 @@ export default class CategoryFilter extends SearchFilter {
       }).finally(
         () => {
       });
-  }
-
-  _matchingFunction(result) {
-    // Guard against errors if group has no categories.  Shouldn't happen, but just in case...
-    if(!result.categories || !Array.isArray(result.categories)) {
-      return false;
-    }
-    
-    let selectedCategories = this.getSelectedValues();
-
-    let filtered = result.categories.filter((c) => {
-      return selectedCategories.find((s) => { return s.getValue() === c.categoryId; }) !== undefined;
-    });
-
-    return filtered !== undefined && filtered.length > 0;   
   }
 }

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var constants = require('../../../constants.js');
+  var constants = require('constants');
 
   angular.module(constants.MODULES.COMMON)
     .directive('profilePicture', require('./profilePicture.directive'))

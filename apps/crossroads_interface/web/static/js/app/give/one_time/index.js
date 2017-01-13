@@ -1,6 +1,6 @@
 'use strict';
 
-var constants = require('../../constants');
+var constants = require('constants');
 
 require('./templates/one_time_confirm.html');
 require('./templates/one_time_account.html');

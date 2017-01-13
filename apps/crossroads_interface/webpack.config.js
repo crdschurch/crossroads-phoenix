@@ -1,5 +1,14 @@
+var webpack = require('webpack');
+var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
+
+var endpoint = {
+  url: 'http://localhost:49380'
+};
+
+var environmentVars = require(path.resolve(__dirname, 'environment.config.js'));
+var definePlugin = new webpack.DefinePlugin(environmentVars.get());
 
 module.exports = {
   entry: {
@@ -19,7 +28,11 @@ module.exports = {
     formbuilder: ['./web/static/js/app/formBuilder/formBuilder.module.js'],
     formlybuilder: ['./web/static/js/app/formlyBuilder/formlyBuilder.module.js']
   },
-
+  externals: {
+    stripe: 'Stripe',
+    moment: 'moment',
+  },
+  devtool: 'sourcemap',
   output: {
     path: "./priv/static",
     filename: "js/[name].js"
@@ -76,6 +89,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin("css/main.css"),
-    new CopyWebpackPlugin([{ from: "./web/static/assets" }])
+    new CopyWebpackPlugin([{ from: "./web/static/assets" }]),
+    definePlugin
   ]
 };

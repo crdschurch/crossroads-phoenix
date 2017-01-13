@@ -1,9 +1,24 @@
 import CONSTANTS from 'crds-constants';
 import {SearchFilter, SearchFilterValue} from './searchFilter';
 
+function matchingFunction(result) {
+  // Guard against errors if group has no age ranges.  Shouldn't happen, but just in case...
+  if(!result.ageRange || !Array.isArray(result.ageRange)) {
+    return false;
+  }
+  
+  let selectedAgeRanges = this.getSelectedValues();
+
+  let filtered = result.ageRange.filter((a) => {
+    return selectedAgeRanges.find((s) => { return s.getValue() === a.attributeId; }) !== undefined;
+  });
+
+  return filtered !== undefined && filtered.length > 0;
+}
+
 export default class AgeRangeFilter extends SearchFilter {
   constructor(filterName, groupService, selectedFilters) {
-    super(filterName, [], this._matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.AGE);
+    super(filterName, [], matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.AGE);
 
     if (selectedFilters == null || selectedFilters == undefined)
       selectedFilters = "";
@@ -26,18 +41,5 @@ export default class AgeRangeFilter extends SearchFilter {
     });
   }
 
-  _matchingFunction(result) {
-    // Guard against errors if group has no age ranges.  Shouldn't happen, but just in case...
-    if(!result.ageRange || !Array.isArray(result.ageRange)) {
-      return false;
-    }
-    
-    let selectedAgeRanges = this.getSelectedValues();
 
-    let filtered = result.ageRange.filter((a) => {
-      return selectedAgeRanges.find((s) => { return s.getValue() === a.attributeId; }) !== undefined;
-    });
-
-    return filtered !== undefined && filtered.length > 0;
-  }
 }

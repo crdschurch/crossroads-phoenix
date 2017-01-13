@@ -1,6 +1,11 @@
+import showError from './formlyBuilder-show-error'
+import label from './formlyBuilder-label'
+import hasError from './formlyBuilder-has-error'
+import showAlert from './formlyBuilder-show-alert'
+
 export default ngModule => {
-  require('./formlyBuilder-show-error')(ngModule);
-  require('./formlyBuilder-label')(ngModule);
-  require('./formlyBuilder-has-error')(ngModule);
-  require('./formlyBuilder-show-alert')(ngModule);
+  showError(ngModule);
+  label(ngModule);
+  hasError(ngModule);
+  showAlert(ngModule);
 }

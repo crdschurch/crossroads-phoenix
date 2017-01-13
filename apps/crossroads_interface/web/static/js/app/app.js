@@ -1,13 +1,8 @@
-// require('./group_finder');
-
-require('./childcare');
+import myserve from './my_serve';
 require('./mp_tools');
-require('./group_tool');
-require('./live_stream');
+//require('./group_tool');
+//require('./live_stream');
 require('ui-select/dist/select.css');
-
-(function () {
-  'use strict()';
 
   var constants = require('constants');
 
@@ -19,10 +14,10 @@ require('ui-select/dist/select.css');
       constants.MODULES.GIVE,
       constants.MODULES.GO_VOLUNTEER,
       constants.MODULES.MEDIA,
-      constants.MODULES.LIVE_STREAM,
+      //constants.MODULES.LIVE_STREAM,
       constants.MODULES.MPTOOLS,
-      constants.MODULES.MY_SERVE,
-      constants.MODULES.GROUP_TOOL,
+      myserve.name,
+      //constants.MODULES.GROUP_TOOL,
       constants.MODULES.PROFILE,
       constants.MODULES.SEARCH,
       constants.MODULES.SIGNUP,
@@ -40,9 +35,7 @@ require('ui-select/dist/select.css');
   require('./thedaily');
   require('./explore');
   require('./gotrips');
-  require('./my_serve');
   require('./brave_at_home');
   require('./volunteer_signup');
   require('./volunteer_application');
   require('./giving_history');
-})();

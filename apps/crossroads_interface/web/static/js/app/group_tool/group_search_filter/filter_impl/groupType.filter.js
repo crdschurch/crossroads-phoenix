@@ -1,9 +1,22 @@
 import CONSTANTS from 'crds-constants';
 import {SearchFilter, SearchFilterValue} from './searchFilter';
 
+function matchingFunction(result) {
+  // Guard against errors if group has no group type.  Shouldn't happen, but just in case...
+  if(!result.groupType) {
+    return false;
+  }
+  
+  let filtered = this.getSelectedValues().find((v) => {
+    return v.getValue() === result.groupType.attributeId; 
+  });
+
+  return filtered !== undefined;    
+}
+
 export default class GroupTypeFilter extends SearchFilter {
   constructor(filterName, groupService, selectedFilters) {
-    super(filterName, [], this._matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.GROUP_TYPE);
+    super(filterName, [], matchingFunction, CONSTANTS.GROUP.SEARCH_FILTERS_QUERY_PARAM_NAMES.GROUP_TYPE);
 
     if (selectedFilters == null || selectedFilters == undefined)
       selectedFilters = "";
@@ -25,16 +38,4 @@ export default class GroupTypeFilter extends SearchFilter {
       });    
   }
 
-  _matchingFunction(result) {
-    // Guard against errors if group has no group type.  Shouldn't happen, but just in case...
-    if(!result.groupType) {
-      return false;
-    }
-    
-    let filtered = this.getSelectedValues().find((v) => {
-      return v.getValue() === result.groupType.attributeId; 
-    });
-
-    return filtered !== undefined;    
-  }
 }

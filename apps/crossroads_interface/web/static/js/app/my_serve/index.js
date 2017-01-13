@@ -1,4 +1,12 @@
-import CONSTANTS from 'crds-constants';
+import CONSTANTS from 'constants';
+
+let module = angular
+  .module(CONSTANTS.MODULES.MY_SERVE, [
+    'ngTagsInput',
+    CONSTANTS.MODULES.CORE,
+    CONSTANTS.MODULES.COMMON
+  ])
+
 
 import './myserve.html';
 import './myserve_icon_key.html';
@@ -24,15 +32,7 @@ import RefineListDirective from './refine/refineList.directive';
 
 import myServeRouter from './my_serve.routes';
 
-export default angular
-  .module(CONSTANTS.MODULES.MY_SERVE, [
-    'ngTagsInput',
-
-    CONSTANTS.MODULES.CORE,
-    CONSTANTS.MODULES.COMMON
-  ])
-
-  .config(myServeRouter)
+  module.config(myServeRouter)
 
   .factory('ServeTeamFilterState', FilterStateService)
   .factory('OpportunityCapacityService', OpportunityCapacityService)
@@ -53,8 +53,9 @@ export default angular
 // Module sub-components
 //
 
-import './closable-tag';
-import './serve_team_members';
-import './serve_team_message';
-import './serve_team_container';
-import './serve_team_leader';
+require('./closable-tag');
+require('./serve_team_members');
+require('./serve_team_message');
+require('./serve_team_container');
+require('./serve_team_leader');
+export default module

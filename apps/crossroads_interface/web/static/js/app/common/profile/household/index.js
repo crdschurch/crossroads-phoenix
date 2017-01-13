@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var constants = require('../../../constants');
+  var constants = require('constants');
 
   require('./profileHousehold.template.html');
   angular.module(constants.MODULES.COMMON)

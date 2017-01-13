@@ -1,5 +1,4 @@
-
-import CONSTANTS from '../../constants';
+import CONSTANTS from 'constants';
 import Address from './address';
 import Participant from './participant';
 import Category from './category';

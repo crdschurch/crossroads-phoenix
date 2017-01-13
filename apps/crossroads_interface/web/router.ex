@@ -16,7 +16,10 @@ defmodule CrossroadsInterface.Router do
   scope "/", CrossroadsInterface do
     pipe_through :browser
 
-    get "/", HomeController, :index
+    get "/home", HomeController, :index
+
+
+    get "/", LegacyController, :index
   end
 
   # Other scopes may use custom stacks.

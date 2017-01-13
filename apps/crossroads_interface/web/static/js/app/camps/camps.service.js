@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
-import constants from 'crds-constants';
+import constants from 'constants';
 /* eslint-enable */
-import filter from 'lodash/collection/filter';
 import moment from 'moment';
 
 /* ngInject */
@@ -185,7 +184,7 @@ class CampsService {
     // FIXME: ? should `crdsConstants` be `constants` ?
     return this.attributeTypeService.AttributeTypes().get({ id: constants.ATTRIBUTE_TYPE_IDS.TSHIRT_SIZES }).$promise // eslint-disable-line new-cap
       .then((shirtSizes) => {
-        this.shirtSizes = filter(shirtSizes.attributes, attribute => attribute.category === 'Adult');
+        this.shirtSizes = _.filter(shirtSizes.attributes, attribute => attribute.category === 'Adult');
         return shirtSizes;
       });
   }

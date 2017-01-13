@@ -1,5 +1,5 @@
 import ApplicationPage from './application_page.component';
-import constants from '../../constants';
+import constants from 'constants';
 import { registerResolve } from './resolve_registry';
 
 // Camper Info
