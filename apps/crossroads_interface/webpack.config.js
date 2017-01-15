@@ -38,7 +38,7 @@ module.exports = {
     filename: "js/[name].js"
   },
   resolve: {
-    modulesDirectories: [ "node_modules", __dirname + "/web/static/js", "lib" ]
+    modulesDirectories: [ "node_modules", __dirname + "/web/static/js", __dirname + "/web/static/lib" ]
   },
   module: {
     loaders: [{

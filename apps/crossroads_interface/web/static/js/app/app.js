@@ -1,7 +1,7 @@
 import myserve from './my_serve';
 require('./mp_tools');
-//require('./group_tool');
-//require('./live_stream');
+require('./group_tool');
+require('./live_stream');
 require('ui-select/dist/select.css');
 
   var constants = require('constants');
@@ -14,10 +14,10 @@ require('ui-select/dist/select.css');
       constants.MODULES.GIVE,
       constants.MODULES.GO_VOLUNTEER,
       constants.MODULES.MEDIA,
-      //constants.MODULES.LIVE_STREAM,
+      constants.MODULES.LIVE_STREAM,
       constants.MODULES.MPTOOLS,
       myserve.name,
-      //constants.MODULES.GROUP_TOOL,
+      constants.MODULES.GROUP_TOOL,
       constants.MODULES.PROFILE,
       constants.MODULES.SEARCH,
       constants.MODULES.SIGNUP,

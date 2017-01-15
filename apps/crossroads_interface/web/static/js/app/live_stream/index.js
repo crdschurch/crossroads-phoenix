@@ -19,18 +19,18 @@ export default angular
   .service('CountdownService', CountdownService)
 ;
 
-import contentCard from './content_card';
-import countdownHeader from './countdown_header';
-import countdownHome from './countdown_home';
-import countdownIntro from './countdown_intro';
-import currentSeries from './current_series';
-import currentSeriesModal from './current_series_modal';
-import geolocation from './geolocation';
-import geolocationModal from './geolocation_modal';
-import landing from './landing';
-import stream from './stream';
-import streamVideojs from './stream_videojs';
-import streamingReminder from './streaming_reminder';
-import streamspotPlayer from './streamspot_player'
-import videojsPlayer from './videojs_player'
-import socialSharing from '../../core/components/social_sharing';
+require('./content_card');
+require('./countdown_header');
+require('./countdown_home');
+require('./countdown_intro');
+require('./current_series');
+require('./current_series_modal');
+require('./geolocation');
+require('./geolocation_modal');
+require('./landing');
+require('./stream');
+require('./stream_videojs');
+require('./streaming_reminder');
+require('./streamspot_player');
+require('./videojs_player');
+require('../../core/components/social_sharing');

@@ -6,4 +6,4 @@ export default angular.
   module(CONSTANTS.MODULES.GROUP_TOOL).
   component('myGroups', MyGroupsComponent());
 
-import groupCard from './group_card'
+require('./group_card');

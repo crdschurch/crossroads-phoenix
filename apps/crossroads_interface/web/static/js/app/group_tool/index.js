@@ -23,18 +23,18 @@ export default angular.
   service('GroupDetailService', GroupDetailService)
   ;
 
-import myGroups from './my_groups';
-import authModal from './auth_modal';
-import confirmRequest from './confirm_request';
-import createGroup from './create_group';
-import groupDetail from './group_detail';
-import groupMessage from './group_message';
-import groupSearch from './group_search';
-import editGroup from './edit_group';
-import groupSearchResults from './group_search_results';
-import groupInvitation from './group_invitation';
-import endGroup from './end_group';
-import filterResults from './group_search_filter';
-import groupEmail from './group_email';
-import groupResources from './group_resources';
-import cms from './cms';
+require('./my_groups');
+require('./auth_modal');
+require('./confirm_request');
+require('./create_group');
+require('./group_detail');
+require('./group_message');
+require('./group_search');
+require('./edit_group');
+require('./group_search_results');
+require('./group_invitation');
+require('./end_group');
+require('./group_search_filter');
+require('./group_email');
+require('./group_resources');
+require('./cms');
