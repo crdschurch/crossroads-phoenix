@@ -4,30 +4,32 @@ defmodule CrossroadsInterface.ErrorView do
   alias CrossroadsContent.Pages
  
   def render("404.html", assigns) do
-    conn = assigns[:conn]
-    params = conn.query_string
-    headers = conn.req_headers
-    case Pages.get_page(conn.request_path <> "/", false) do
-      {:ok, 200, %{ "pages" => [first | rest]}} ->
-        if Map.has_key?(first, "content") do
-          payload = Map.get(first, "content")
-          page_type = Map.get(first, "pageType", "CenteredContentPage")
-          render("content_page.html", %{payload: payload, page_type: page_type, content_blocks: ContentHelpers.content_blocks(), conn: conn})
-        else
-          # TODO render the CMS 404 page, not the Server Error Page
-          render("500.html", assigns)
-        end
-      {_, _, body} -> render("500.html", assigns)
-    end
+    #conn = assigns[:conn]
+    #params = conn.query_string
+    #headers = conn.req_headers
+    #case Pages.get_page(conn.request_path <> "/", false) do
+      #{:ok, 200, %{ "pages" => [first | rest]}} ->
+        #if Map.has_key?(first, "content") do
+          #payload = Map.get(first, "content")
+          #page_type = Map.get(first, "pageType", "CenteredContentPage")
+          #render("content_page.html", %{payload: payload, page_type: page_type, content_blocks: ContentHelpers.content_blocks(), conn: conn})
+        #else
+          ## TODO render the CMS 404 page, not the Server Error Page
+          #render("500.html", assigns)
+        #end
+      #{_, _, body} -> render("500.html", assigns)
+    #end
+    render("index.html", assigns)
   end
 
   def render("500.html", assigns) do
     conn = assigns[:conn]
-    payload = case Pages.get_page("/servererror/", false) do
-      {:ok, 200, body} -> Enum.at(body["pages"], 0)["content"]
-      {_, _, body} -> "<h2> #{body} </h2>"
-    end
-    render("server_error.html", %{payload: payload, conn: conn})
+    #payload = case Pages.get_page("/servererror/", false) do
+      #{:ok, 200, body} -> Enum.at(body["pages"], 0)["content"]
+      #{_, _, body} -> "<h2> #{body} </h2>"
+    #end
+    #render("server_error.html", %{payload: payload, conn: conn})
+    render("index.html", assigns)
   end
 
   # In case no render clause matches or no
