@@ -13,14 +13,12 @@
       <% end %>
     <% end %>
     <title>Hello CrossroadsInterface!</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.css") %>">
+    <!-- <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.css") %>"> -->
 
     <base href="/angular2">
   </head>
 
   <body class="crds-legacy-styles">
     <%= render @view_module, @view_template, assigns %>
-
-    
   </body>
 </html>
