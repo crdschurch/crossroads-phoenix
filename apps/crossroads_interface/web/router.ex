@@ -22,6 +22,8 @@ defmodule CrossroadsInterface.Router do
   scope "/", CrossroadsInterface do
     pipe_through :browser
 
+    get "/angular2", AngularController, :index
+
     get "/", LegacyController, :index
   end
 

@@ -43,7 +43,8 @@
     "ui-select": "^0.17.1",
     "video.js": "^5.15.1",
     "videojs-chromecast": "^2.0.8",
-    "wow.js": "^1.2.2"
+    "wow.js": "^1.2.2",
+    "angular2-phoenix": "crdschurch/angular2-webpack-phoenix#master"
   },
   "name": "crossroads_interface",
   "description": "To start your Phoenix app:",

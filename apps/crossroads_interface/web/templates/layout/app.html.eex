@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <%= if assigns[:js_files] do %>
+      <%= for script_file <- @js_files do %>
+        <script src="<%= static_path(@conn, script_file)%>" > </script>
+      <% end %>
+    <% end %>
     <title>Hello CrossroadsInterface!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.css") %>">
+
+    <base href="/angular2">
   </head>
 
   <body class="crds-legacy-styles">
     <%= render @view_module, @view_template, assigns %>
 
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    
   </body>
 </html>

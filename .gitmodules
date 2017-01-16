@@ -1,0 +1,3 @@
+[submodule "apps/crossroads_interface/web/static/js/angular2-webpack-phoenix"]
+	path = apps/crossroads_interface/web/static/js/angular2-webpack-phoenix
+	url = git@github.com:crdschurch/angular2-webpack-phoenix.git
