@@ -13,11 +13,14 @@ defmodule CrossroadsInterface.Router do
     plug :accepts, ["json"]
   end
 
+  #scope "/", CrossroadsInterface do
+    #pipe_through :api
+    #get "/*proxy", ProxyController, :handle_proxy
+    #put "/*proxy", ProxyController, :handle_proxy
+  #end
+
   scope "/", CrossroadsInterface do
     pipe_through :browser
-
-    get "/home", HomeController, :index
-
 
     get "/", LegacyController, :index
   end
