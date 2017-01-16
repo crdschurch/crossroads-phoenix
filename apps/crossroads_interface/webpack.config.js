@@ -10,7 +10,7 @@ var endpoint = {
 var environmentVars = require(path.resolve(__dirname, 'environment.config.js'));
 var definePlugin = new webpack.DefinePlugin(environmentVars.get());
 
-module.exports = {
+module.exports = [{
   entry: {
     app: ["./web/static/css/main.scss", "./web/static/js/app.js"],
     childcare: './web/static/js/app/childcare_dashboard/childcareDashboard.module.js',
@@ -92,4 +92,4 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./web/static/assets" }]),
     definePlugin
   ]
-};
+}];
