@@ -1,4 +1,4 @@
-import CONSTANTS from 'constants';
+import CONSTANTS from 'crds-constants';
 
 let module = angular
   .module(CONSTANTS.MODULES.MY_SERVE, [

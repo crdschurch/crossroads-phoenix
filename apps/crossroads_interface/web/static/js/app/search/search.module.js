@@ -1,5 +1,5 @@
 'use strict';
-var constants = require('constants');
+var constants = require('crds-constants');
 
 require('./search-results.html');
 

@@ -4,7 +4,7 @@ require('./group_tool');
 require('./live_stream');
 require('ui-select/dist/select.css');
 
-  var constants = require('constants');
+  var constants = require('crds-constants');
 
   angular.module(constants.MODULES.CROSSROADS, [
       constants.MODULES.CHILDCARE_DASHBOARD,

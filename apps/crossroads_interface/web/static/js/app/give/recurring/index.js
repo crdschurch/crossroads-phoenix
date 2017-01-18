@@ -1,6 +1,6 @@
 'use strict';
 
-var constants = require('constants');
+var constants = require('crds-constants');
 
 require('./templates/recurring_account.html');
 require('./templates/recurring_thank_you.html');

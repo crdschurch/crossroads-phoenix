@@ -38,41 +38,49 @@ module.exports = [{
     filename: "js/[name].js"
   },
   resolve: {
-    modulesDirectories: [ "node_modules", __dirname + "/web/static/js", __dirname + "/web/static/lib" ]
+    modules: [
+      "node_modules/",
+      __dirname + "/web/static/js/",
+      __dirname + "/web/static/lib/"
+    ]
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: [
         /node_modules/,
         /streamspotAnalytics\.js$/,
         /videojs5-hlsjs-source-handler/
       ],
-      loader: "ng-annotate!babel-loader?presets[]=es2015",
-    },
-    {
-      test: /\.json$/,
-      loaders: ["json-loader"]
+      use: [
+      "ng-annotate-loader", "babel-loader?presets[]=es2015"
+      ]
     },
     {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      use: ['style-loader', 'css-loader' ]
     },
     {
       test: /\.html$/,
-      loader: 'ng-cache?prefix=[dir]',
+      loader: 'ng-cache-loader?prefix=[dir]',
       exclude: [/\.ng2component\.html$/]
     },
     {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract(
-        "style",
-        "css!sass?includePaths[]=" + __dirname + "/node_modules!postcss-loader"
-      )
+      loader: ExtractTextPlugin.extract({
+        fallbackLoader: "style-loader",
+        loader: "css-loader!sass-loader?includePaths[]=" + __dirname + "/node_modules!postcss-loader",
+        /*use: [*/
+          //"css-loader",
+          //"sass-loader?includePaths[]=" + __dirname + "/node_modules",
+          //"postcss-loader"
+        /*],*/
+        publicPath: "/css"
+      })
     },
     {
       test: /\.(png|jpg|jpeg|gif)$/,
-      loader: 'url?limit=10000'
+      loader: 'url-loader?limit=10000'
     },
     {
       test: /\.woff$/,
@@ -84,12 +92,16 @@ module.exports = [{
     },
     {
       test: /\.svg$/,
-      loader: 'svg-sprite?' + JSON.stringify({angularBaseWorkaround: true })
+      loader: 'svg-sprite-loader?' + JSON.stringify({angularBaseWorkaround: true })
     }]
   },
   plugins: [
-    new ExtractTextPlugin("css/main.css"),
+    new ExtractTextPlugin({
+      filename: "css/main.css",
+      disable: false,
+      allChunks: true
+    }),
     new CopyWebpackPlugin([{ from: "./web/static/assets" }]),
     definePlugin
   ]
-}];
+}, require('./web/static/js/angular2-webpack-phoenix/webpack.config.js')];

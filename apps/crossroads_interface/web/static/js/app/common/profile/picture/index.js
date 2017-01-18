@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var constants = require('constants');
+  var constants = require('crds-constants');
 
   angular.module(constants.MODULES.COMMON)
     .directive('profilePicture', require('./profilePicture.directive'))

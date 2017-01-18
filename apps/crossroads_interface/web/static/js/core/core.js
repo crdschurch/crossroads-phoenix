@@ -3,9 +3,9 @@
 
   require('lodash');
   require('api-check');
-  require('expose?moment!moment');
-  require('expose?imgix!imgix.min');
-  require('expose?fastclick!fastclick');
+  require('expose-loader?moment!moment');
+  require('expose-loader?imgix!imgix.min');
+  require('expose-loader?fastclick!fastclick');
 
   require('angular-growl');
 
@@ -59,5 +59,5 @@
   require('./errors');
 
   // require and export crds_utilities on global scope
-  require('expose?crds_utilities!./crds_utilities.js');
+  require('expose-loader?crds_utilities!./crds_utilities.js');
 })();

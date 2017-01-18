@@ -1,5 +1,5 @@
 import CampRoutes from './camps.routes';
-import constants from 'constants';
+import constants from 'crds-constants';
 
 import FormlyConfig from './camps.formly';
 import './formly_wrappers/bootstrap_row.html';
