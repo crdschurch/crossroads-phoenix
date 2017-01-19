@@ -5,12 +5,15 @@
 # is restricted to this project.
 use Mix.Config
 
+config :ssl, protocol_version: :"tlsv1.2"
+
 config :crossroads_content,
   http: HTTPoison,
   content_server: System.get_env("CRDS_CMS_ENDPOINT")
 
 config :crossroads_interface,
-  content_pages: CrossroadsContent.Pages
+  content_pages: CrossroadsContent.Pages,
+  api_url: "http://silbervm:49380/"
 
 # Configures the endpoint
 config :crossroads_interface, CrossroadsInterface.Endpoint,

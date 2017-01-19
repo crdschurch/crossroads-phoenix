@@ -14,7 +14,7 @@ defmodule CrossroadsInterface.Router do
   end
 
   scope "/proxy", CrossroadsInterface do
-    forward "/", ProxyController, :handle_proxy_request
+    forward "/gateway", ProxyController, :handle_gateway_proxy
   end
 
   scope "/", CrossroadsInterface do
