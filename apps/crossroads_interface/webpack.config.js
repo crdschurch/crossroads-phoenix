@@ -70,11 +70,6 @@ module.exports = [{
       loader: ExtractTextPlugin.extract({
         fallbackLoader: "style-loader",
         loader: "css-loader!sass-loader?includePaths[]=" + __dirname + "/node_modules!postcss-loader",
-        /*use: [*/
-          //"css-loader",
-          //"sass-loader?includePaths[]=" + __dirname + "/node_modules",
-          //"postcss-loader"
-        /*],*/
         publicPath: "/css"
       })
     },
@@ -102,6 +97,14 @@ module.exports = [{
       allChunks: true
     }),
     new CopyWebpackPlugin([{ from: "./web/static/assets" }]),
-    definePlugin
+    definePlugin,
+    new webpack.optimize.UglifyJsPlugin({
+      comments: false,
+      compress: { warnings: false },
+      sourceMap: true,
+      mangle: false,
+      output: { ascii_only: true }
+    })
+
   ]
 }, require('./web/static/js/angular2-webpack-phoenix/webpack.config.js')];
