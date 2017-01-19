@@ -1,4 +1,4 @@
-import types from './formlyConfig/wrappers'
+import types from './formlyConfig/types'
 import wrappers from './formlyConfig/wrappers'
 import composer from './fbComposer'
 import mapper from './fbMapper'

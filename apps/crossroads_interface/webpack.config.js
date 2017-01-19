@@ -88,7 +88,11 @@ module.exports = [{
     {
       test: /\.svg$/,
       loader: 'svg-sprite-loader?' + JSON.stringify({angularBaseWorkaround: true })
-    }]
+    }],
+    noParse: [
+      /video\.js$|videosjs\-chromecast\.js/,
+      /videojs5-hlsjs-source-handler/,
+    ]
   },
   plugins: [
     new ExtractTextPlugin({
