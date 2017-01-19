@@ -1,4 +1,4 @@
-/*@ngInject*/
+/* @ngInject */
 class NoTakeBacksController {
   constructor($modalInstance) {
     this.modalInstance = $modalInstance;

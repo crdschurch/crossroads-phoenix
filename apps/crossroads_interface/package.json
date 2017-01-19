@@ -109,7 +109,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "./node_modules/webpack/bin/webpack.js -p",
+    "deploy": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress --profile --bail",
     "watch": "MIX_ENV=${MIX_ENV:=dev} ./node_modules/webpack/bin/webpack.js --watch-stdin --progress --color",
     "build": "./node_modules/webpack/bin/webpack.js --progress --color"
   },

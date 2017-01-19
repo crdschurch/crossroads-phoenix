@@ -28,7 +28,6 @@ export default function ChildcareRoutes($stateProvider) {
       ChildcareDashboardService.congregations = data;
       deferred.resolve();
     }, (err) => {
-      console.log(err);
       deferred.reject();
     });
     return deferred.promise;

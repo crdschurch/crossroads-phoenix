@@ -1,4 +1,4 @@
-/*@ngInject*/
+/* @ngInject */
 class ChildcareDashboardController {
     constructor(ChildcareDashboardService){
       this.childcareService = ChildcareDashboardService;

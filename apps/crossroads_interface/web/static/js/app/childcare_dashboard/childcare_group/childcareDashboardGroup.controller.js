@@ -1,7 +1,7 @@
 import NoTakeBacksController from './noTakeBacks.controller';
 require('./noTakeBacks.html');
 
-/*@ngInject*/
+/* @ngInject */
 class ChildcareDashboardGroupController {
   constructor($rootScope, $scope, $modal, ChildcareDashboardService) {
     this.message = '';

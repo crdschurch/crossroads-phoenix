@@ -1,4 +1,4 @@
-/* ngInject */
+/* @ngInject */
 class ChildcareDashboardService { 
   constructor($resource, Session) {
     this.resource = $resource;

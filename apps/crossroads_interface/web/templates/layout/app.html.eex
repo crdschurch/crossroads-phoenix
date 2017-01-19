@@ -13,7 +13,7 @@
       <% end %>
     <% end %>
     <title>Hello CrossroadsInterface!</title>
-    <!-- <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.css") %>"> -->
+    <link rel="stylesheet" href="<%= static_path(@conn, "/js/angular2-webpack/main.css") %>">
 
     <base href="/angular2">
   </head>
