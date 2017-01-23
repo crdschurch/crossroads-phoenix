@@ -24,3 +24,9 @@ The only application that needs npm dependencies is the phoenix app located in [
 Still inside the [apps/crossroads-interface]('./apps/crossroads_interface') folder, run `mix phoenix.server` and point your web browser to [http://localhost:4000](http://localhost:4000). Or if you prefer to be in an [IEx Shell](http://elixir-lang.org/docs/stable/iex/IEx.html) run `iex -S mix phoenix.server`.
 
 
+## Things still left TODO
+- [ ] Pull in all tests from the crds-angular repo
+- [ ] Find a way to run all tests and submodule tests from the root of the crossroads-interface with NPM and webpack(?)
+- [ ] Handle authentication more globally. Maybe the Phoneix server handles it and uses Session storage? Maybe we just create a framework and add it to the example JS repo.
+- [x] Setup the Phoenix app to proxy requests the .NET server.
+- [ ] Setup the Phoenix app to proxy CMS request to the CMS Server.
