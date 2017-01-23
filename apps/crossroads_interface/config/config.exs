@@ -13,7 +13,8 @@ config :crossroads_content,
 
 config :crossroads_interface,
   content_pages: CrossroadsContent.Pages,
-  api_url: "http://silbervm:49380/"
+  api_url: "http://silbervm:49380/",
+  gateway_http: HTTPoison
 
 # Configures the endpoint
 config :crossroads_interface, CrossroadsInterface.Endpoint,

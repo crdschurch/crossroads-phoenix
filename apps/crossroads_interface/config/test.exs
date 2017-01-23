@@ -11,7 +11,8 @@ config :crossroads_interface, CrossroadsInterface.Endpoint,
   server: false
 
   config :crossroads_interface,
-  content_pages: CrossroadsInteface.ContentPagesMock
+  content_pages: CrossroadsInteface.ContentPagesMock,
+  gateway_http: CrossroadsInteface.GatewayProxyMock
 
 # Print only warnings and errors during test
 config :logger, level: :warn

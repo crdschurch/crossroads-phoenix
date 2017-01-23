@@ -1,5 +1,6 @@
 defmodule CrossroadsInterface.ProxyHelperTest do
   use CrossroadsInterface.ConnCase
+  doctest ProxyHelpers 
 
   alias ProxyHelpers
 

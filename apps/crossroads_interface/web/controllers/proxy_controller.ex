@@ -3,6 +3,8 @@ defmodule CrossroadsInterface.ProxyController do
   alias ProxyHelpers
 
   @api_url Application.get_env(:crossroads_interface, :api_url)
+  @gateway_http Application.get_env(:crossroads_interface, :gateway_http)
+
 
   def handle_gateway_proxy(%{:method => "GET", :request_path => request_path} = conn, _params) do
     request_path = ProxyHelpers.strip_proxy_path(request_path)
@@ -13,7 +15,7 @@ defmodule CrossroadsInterface.ProxyController do
 
   def handle_gateway_proxy(%{:method => "POST", :request_path => request_path} = conn, params) do
     request_path = ProxyHelpers.strip_proxy_path(request_path)
-    HTTPoison.post("#{@api_url}#{request_path}", Poison.encode!(params), conn.req_headers)
+    @gateway_http.post("#{@api_url}#{request_path}", Poison.encode!(params), conn.req_headers, [recv_timeout: :infinity])
     |> match_response
     |> send_response(conn)
   end
