@@ -1,15 +1,15 @@
-defmodule ProxyHelpers do
+defmodule CrossroadsInterface.ProxyHelpers do
   @moduledoc """
     Utility methods for the proxy controller
   """
 
-  @doc """
+    @doc """
   Removes the first two paths of the url and returns the
   remainder.
 
   ## Examples
 
-    iex> ProxyHelpers.strip_proxy_path("/proxy/gateway/api/login")
+    iex> CrossroadsInterface.ProxyHelpers.strip_proxy_path("/proxy/gateway/api/login")
     "api/login"
 
   """

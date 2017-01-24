@@ -1,8 +1,8 @@
 defmodule CrossroadsInterface.ProxyHelperTest do
   use CrossroadsInterface.ConnCase
-  doctest ProxyHelpers 
+  doctest CrossroadsInterface.ProxyHelpers
 
-  alias ProxyHelpers
+  alias CrossroadsInterface.ProxyHelpers
 
   test "strip proxy path from proxy request" do
     request_url = "/proxy/gateway/api/login"

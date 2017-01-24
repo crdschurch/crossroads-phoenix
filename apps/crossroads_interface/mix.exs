@@ -9,7 +9,7 @@ defmodule CrossroadsInterface.Mixfile do
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application.
@@ -33,6 +33,8 @@ defmodule CrossroadsInterface.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:crossroads_content, in_umbrella: true}]
+     {:crossroads_content, in_umbrella: true},
+     {:mix_test_watch, "~> 0.2", only: :dev},
+     {:mock, "~> 0.2.0", only: :test}]
   end
 end

@@ -12,9 +12,7 @@ config :crossroads_content,
   content_server: System.get_env("CRDS_CMS_ENDPOINT")
 
 config :crossroads_interface,
-  content_pages: CrossroadsContent.Pages,
-  api_url: "http://silbervm:49380/",
-  gateway_http: HTTPoison
+  api_url: "http://silbervm:49380/"
 
 # Configures the endpoint
 config :crossroads_interface, CrossroadsInterface.Endpoint,
