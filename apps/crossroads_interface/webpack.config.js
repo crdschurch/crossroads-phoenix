@@ -111,4 +111,4 @@ module.exports = [{
     })
 
   ]
-}, require('./web/static/js/angular2-webpack-phoenix/webpack.config.js')];
+}, require('./node_modules/angular2-phoenix/webpack.config.js')];
