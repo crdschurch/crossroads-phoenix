@@ -1,5 +1,10 @@
 defmodule CrossroadsInterface.LegacyController do
   use CrossroadsInterface.Web, :controller
+  @moduledoc"""
+  This controller is called from the fall through route in the router. 
+  The purpose is to handle serving up the 'legacy' angular application using 
+  the legacy template
+  """
 
   plug :put_layout, "legacy.html"
 

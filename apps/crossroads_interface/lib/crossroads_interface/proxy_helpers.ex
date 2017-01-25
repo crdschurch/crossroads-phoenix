@@ -21,4 +21,16 @@ defmodule CrossroadsInterface.ProxyHelpers do
     |> Enum.drop(2)
     |> Enum.join("/")
   end
+
+  @doc """
+  Match the response appropriatly.
+  """
+  def match_response(resp) do
+    case resp do
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body}} -> 
+        {status_code, body}
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        {500, reason}
+    end
+  end
 end

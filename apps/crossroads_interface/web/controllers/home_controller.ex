@@ -1,6 +1,13 @@
 defmodule CrossroadsInterface.HomeController do
   use CrossroadsInterface.Web, :controller
+  @moduledoc """
+  This controller handles displaying the homepage by getting the content
+  from the CMS's default route at '/'
+  """
 
+  @doc"""
+  Get the homepage from the CMS and return it with the correct layout
+  """
   def index(conn, _params) do
     case CrossroadsContent.Pages.get_page("/", false) do
       {:ok, 200, %{ "pages" => [first | rest]}} ->

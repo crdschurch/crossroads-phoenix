@@ -1,8 +1,14 @@
 defmodule CrossroadsInterface.GatewayProxyMock do
 
-  @api_url Application.get_env(:crossroads_interface, :api_url)
+  def gateway_post(_path, %{"username" => "baduser", "password" => "badpass" }, headers) do
+    {:ok, %HTTPoison.Response{
+      body: "{\"abcdefg\": 1}",
+      headers: headers,
+      status_code: 500
+    }}
+  end
 
-  def gateway_post(path, params, headers) do
+  def gateway_post(_path, _params, headers) do
     {:ok, %HTTPoison.Response{
       body: "{\"abcdefg\": 1}",
       headers: headers,
@@ -10,8 +16,7 @@ defmodule CrossroadsInterface.GatewayProxyMock do
     }}
   end
 
-  def gateway_get(path, headers) do
-    IO.inspect "gateway get"
+  def gateway_get(_path, headers) do
     {:ok, %HTTPoison.Response{
       body: "{\"abcdefg\": 1}",
       headers: headers,

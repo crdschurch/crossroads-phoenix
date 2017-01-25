@@ -12,7 +12,7 @@ config :crossroads_content,
 # with brunch.io to recompile .js and .css sources.
 config :crossroads_interface, CrossroadsInterface.Endpoint,
   http: [port: 4000],
-  debug_errors: false,
+  debug_errors: true,
   code_reloader: true,
   check_origin: false,
   watchers: [node: ["node_modules/webpack/bin/webpack.js", "--watch-stdin", "--progress", "--color"]]
