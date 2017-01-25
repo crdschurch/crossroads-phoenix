@@ -19,3 +19,9 @@ This is environment specific, please visit [https://nodejs.org/en/](https://node
 4. Install Angular dependencies by running the following command in the crossroads_interface/ directory: `npm install`
 5. Kick of the build and the server: `MIX_ENV=dev mix phoenix.server`
 
+## Things still left TODO
+- [ ] Pull in all tests from the crds-angular repo
+- [ ] Find a way to run all tests and submodule tests from the root of the crossroads-interface with NPM and webpack(?)
+- [ ] Handle authentication more globally. Maybe the Phoneix server handles it and uses Session storage? Maybe we just create a framework and add it to the example JS repo.
+- [x] Setup the Phoenix app to proxy requests the .NET server.
+- [ ] Setup the Phoenix app to proxy CMS request to the CMS Server.
