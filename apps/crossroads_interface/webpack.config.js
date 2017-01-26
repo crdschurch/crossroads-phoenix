@@ -110,5 +110,6 @@ module.exports = [{
       output: { ascii_only: true }
     })
 
-  ]
-}, require('./node_modules/angular2-phoenix/webpack.config.js')];
+  ]},
+  require('./node_modules/angular2-phoenix/webpack.config.js')
+];
