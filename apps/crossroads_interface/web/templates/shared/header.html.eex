@@ -2,7 +2,6 @@
   <div class="overlay-container"></div>
   <!-- Brand Bar -->
 
-  <!-- <ng-include src="'templates/brand-bar.html'"></ng-include> -->
   <%= render CrossroadsInterface.SharedView, "brand_bar.html" %>
   <div id="menu" class="menu">
     <div class="container">

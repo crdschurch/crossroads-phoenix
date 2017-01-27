@@ -6,7 +6,7 @@ defmodule CrossroadsInterface.LegacyController do
   the legacy template
   """
 
-  plug :put_layout, "legacy.html"
+  #plug :put_layout, "legacy.html"
 
   def index(conn, _params) do
     render conn, "index.html", %{ "js_files": [

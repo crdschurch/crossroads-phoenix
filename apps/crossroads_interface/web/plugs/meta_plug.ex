@@ -35,9 +35,12 @@ defmodule CrossroadsInterface.Plug.Meta do
   end
 
   defp match_system_pages({:ok, resp_code, body}) do
-    body
-    |> Map.get("systemPages", [])
-    |> List.first
+    list = body |> Map.get("systemPages", [])
+    if (Enum.count(list) > 0) do
+      List.first(list)
+    else 
+      %{}
+    end
   end
 
   defp match_system_pages({:error, resp_code, body}) do
