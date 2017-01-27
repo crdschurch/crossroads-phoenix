@@ -108,7 +108,7 @@
 
       //TODO: put the 'toState' in the session if we want to redirect to that page
       vm.resolving = false;
-      $state.go('content', {link: '/server-error/'});
+      $state.go('content', {link: '/servererror/'});
     });
 
     //////////////////////////

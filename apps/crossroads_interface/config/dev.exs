@@ -2,7 +2,7 @@ use Mix.Config
 
 config :crossroads_content,
   http: HTTPoison,
-  content_server: System.get_env("CRDS_CMS_ENDPOINT")
+  content_server: "https://contentint.crossroads.net/"
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
