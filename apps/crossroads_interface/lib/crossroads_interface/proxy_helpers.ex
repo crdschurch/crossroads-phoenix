@@ -45,7 +45,6 @@ defmodule CrossroadsInterface.ProxyHelpers do
   Match the response appropriatly.
   """
   def match_response(resp) do
-    IEx.pry
     case resp do
       {:ok, %HTTPoison.Response{status_code: 404, body: body}} ->
         {404, "{\"eror\", \"route does not exist\"}"}

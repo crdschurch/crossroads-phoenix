@@ -11,7 +11,6 @@ defmodule CrossroadsInterface.ProxyContentController do
   alias CrossroadsInterface.ProxyHttp
 
   def handle_content_proxy(%{:request_path => request_path} = conn, %{"link" => page} = params) do
-   # IEx.pry
     #case CrossroadsContent.Pages.get_page(page, false) do
       #{:ok, code, body} -> 
         #conn

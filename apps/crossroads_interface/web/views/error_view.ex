@@ -5,7 +5,6 @@ defmodule CrossroadsInterface.ErrorView do
 
   def render("404.html", assigns) do
     conn = assigns[:conn]
-    IEx.pry
     #params = conn.query_stringL #headers = conn.req_headers
     #case Pages.get_page(conn.request_path <> "/", false) do
       #{:ok, 200, %{ "pages" => [first | rest]}} ->
@@ -26,7 +25,6 @@ defmodule CrossroadsInterface.ErrorView do
 
   def render("500.html", assigns) do
     conn = assigns[:conn]
-    IEx.pry
     payload = case Pages.get_page("/servererror/", false) do
       {:ok, 200, body} -> Enum.at(body["pages"], 0)["content"]
       {_, _, body} -> "<h2> #{body} </h2>"

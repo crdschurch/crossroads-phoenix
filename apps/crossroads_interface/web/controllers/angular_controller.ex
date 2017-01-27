@@ -8,6 +8,10 @@ defmodule CrossroadsInterface.AngularController do
         "/js/angular2-webpack/polyfills.bundle.js",
         "/js/angular2-webpack/vendor.bundle.js",
         "/js/angular2-webpack/main.bundle.js",
-      ] }
+      ], "css_files": [
+        "/js/angular2-webpack/main.css"
+      ],
+      "base_href": "/angular2",
+      "page_type": "no_sidebar"}
   end
 end

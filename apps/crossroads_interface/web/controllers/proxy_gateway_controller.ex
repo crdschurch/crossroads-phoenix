@@ -3,14 +3,12 @@ defmodule CrossroadsInterface.ProxyGatewayController do
   @moduledoc """
   Pass traffic from the frontend to the correct gateway endpoint.
   """
-
   require IEx
-  
+
   alias CrossroadsInterface.ProxyHelpers
   alias CrossroadsInterface.ProxyHttp
 
   def handle_gateway_proxy(%{:method => "GET", :request_path => request_path} = conn, params) do
-    IEx.pry()
     request_path = ProxyHelpers.strip_proxy_path(request_path)
     request_params = ProxyHelpers.build_param_string(params)
     ProxyHttp.gateway_get(request_path <> request_params, conn.req_headers)
