@@ -11,6 +11,7 @@ defmodule CrossroadsInterface.Router do
     plug CrossroadsInterface.Plug.ContentBlocks
     plug CrossroadsInterface.Plug.PageType
     plug CrossroadsInterface.Plug.Payload
+    plug CrossroadsInterface.Plug.BaseHref
   end
 
   pipeline :api do
@@ -27,6 +28,8 @@ defmodule CrossroadsInterface.Router do
     pipe_through :browser
 
     forward "/angular2", AngularController, :index
+
+    post "/login", AuthenticationController, :login
 
     get "/", LegacyController, :index
   end

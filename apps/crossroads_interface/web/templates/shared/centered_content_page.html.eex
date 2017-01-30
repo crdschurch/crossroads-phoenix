@@ -1,4 +1,4 @@
-<%= render CrossroadsInterface.SharedView, "header.html", %{content_blocks: @content_blocks } %>
+<%= render CrossroadsInterface.SharedView, "header.html", %{content_blocks: @content_blocks, conn: @conn } %>
 
 <div class="container main animated fadeIn">
   <div class="row">
