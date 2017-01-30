@@ -10,7 +10,8 @@ var endpoint = {
 var environmentVars = require(path.resolve(__dirname, 'environment.config.js'));
 var definePlugin = new webpack.DefinePlugin(environmentVars.get());
 
-module.exports = [{
+module.exports = [
+  require('./node_modules/crds-connect/webpack.config.js'), {
   entry: {
     app: ["./web/static/css/main.scss", "./web/static/js/app.js"],
     childcare: './web/static/js/app/childcare_dashboard/childcareDashboard.module.js',
