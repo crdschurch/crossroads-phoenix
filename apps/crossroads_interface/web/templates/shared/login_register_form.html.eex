@@ -17,9 +17,6 @@
           autocomplete: "off",
           autocapitalize: "off" %>
         </div>
-        <%= if message = @errors[:username] do %>
-            <span><%= message %></span>
-          <% end %>
       </div>
       <div class="navbar--login__input" >
         <div class="form-group">

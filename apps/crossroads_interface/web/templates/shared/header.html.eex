@@ -88,7 +88,7 @@
                     <div class="navbar--register__container">
                       <div class="dd_menu">
                         <!-- TODO: Create some reusable Login form -->
-                        <%= render CrossroadsInterface.SharedView, "login_register_form.html", %{content_blocks: @content_blocks, conn: @conn, errors: @errors } %>
+                        <%= render CrossroadsInterface.SharedView, "login_register_form.html", %{content_blocks: @content_blocks, conn: @conn} %>
                         <!-- <login-form register-url="register"></login-form> -->
                       </div>
                     </div>
