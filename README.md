@@ -34,6 +34,7 @@ This is environment specific, please visit [https://nodejs.org/en/](https://node
 - [ ] Handle authentication more globally. Maybe the Phoneix server handles it and uses Session storage? Maybe we just create a framework and add it to the example JS repo.
 - [x] Setup the Phoenix app to proxy requests the .NET server.
 - [ ] Setup the Phoenix app to proxy CMS request to the CMS Server.
+- [ ] Pull in all the latest changes to crds-angular client side codebase.
 - [ ] Create a future proof, framework agnostic, shareable header and footer
 - [ ] Write a guide for adding/editing a microclient 
 - [ ] Deployment
