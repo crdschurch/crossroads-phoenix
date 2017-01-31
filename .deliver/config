@@ -21,7 +21,7 @@ pre_erlang_get_and_update_deps() {
     "
   fi
   set -e
-  cd $BUILD_AT/apps/$APP
+  cd /tmp/edeliver/crossroads_phoenix/builds/apps/$APP
   mkdir -p priv/static
 
   npm install
