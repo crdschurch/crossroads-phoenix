@@ -39,7 +39,7 @@ end
 # will be used by default
 
 release :crossroads_interface do
-  set version: current_version(:crossroad_interface)
+  set version: current_version(:crossroads_interface)
   set applications: [
     crossroads_authentication: :permanent,
     crossroads_content: :permanent,
