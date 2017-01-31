@@ -27,7 +27,7 @@ pre_erlang_clean_compile() {
    __sync_remote " # runs the commands on the build host
     [ -f ~/.profile ] && source ~/.profile # load profile (optional)
     set -e # fail if any command fails (recommended)
-    cd '$BUILD_AT/app/$APP' # enter the build directory on the build host (required)
+    cd '$BUILD_AT/apps/$APP' # enter the build directory on the build host (required)
     npm install 
     npm run deploy
     mkdir -p priv/static # required by the phoenix.digest task
