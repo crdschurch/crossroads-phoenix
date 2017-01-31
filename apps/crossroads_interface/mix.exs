@@ -3,7 +3,7 @@ defmodule CrossroadsInterface.Mixfile do
 
   def project do
     [app: :crossroads_interface,
-     version: "0.0.1",
+     version: append_revision("0.0.1"),
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -11,6 +11,16 @@ defmodule CrossroadsInterface.Mixfile do
      start_permanent: Mix.env == :prod,
      deps: deps()]
   end
+
+  def append_revision(version) do
+    "#{version}+#{revision}"
+  end
+
+  defp revision() do
+    System.cmd("git", ["rev-parse", "--short", "HEAD"])
+    |> elem(0)
+    |> String.rstrip
+  end  
 
   # Configuration for the OTP application.
   #

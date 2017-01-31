@@ -3,7 +3,7 @@ defmodule CrossroadsContent.Mixfile do
 
   def project do
     [app: :crossroads_content,
-     version: "0.1.0",
+     version: append_revision("0.1.0"),
      build_path: "../../_build",
      config_path: "../../config/config.exs",
      deps_path: "../../deps",
@@ -28,6 +28,16 @@ defmodule CrossroadsContent.Mixfile do
       {:httpoison, "~> 0.9.0"},
       {:poison, "~> 2.0"}
     ]
+  end
+
+  def append_revision(version) do
+    "#{version}+#{revision}"
+  end
+
+  defp revision() do
+    System.cmd("git", ["rev-parse", "--short", "HEAD"])
+    |> elem(0)
+    |> String.rstrip
   end
 
   defp elixirc_paths(:test) do

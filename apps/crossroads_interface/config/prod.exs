@@ -13,8 +13,9 @@ use Mix.Config
 # which you typically run after static files are built.
 config :crossroads_interface, CrossroadsInterface.Endpoint,
   http: [port: 8080],
-  url: [host: "localhost", port: 8080],
-  cache_static_manifest: "priv/static/manifest.json"
+  url: [host: "int.crossroads.net", port: 8080],
+  cache_static_manifest: "priv/static/manifest.json",
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info

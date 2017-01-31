@@ -115,6 +115,6 @@ module.exports = [
     })
 
   ]},
-  require('./node_modules/crds-connect/webpack.config.js'),
-  //require('./node_modules/angular2-phoenix/webpack.config.js')
+  //require('./node_modules/crds-connect/webpack.config.js'),
+  require('./node_modules/angular2-phoenix/webpack.config.js')
 ];
