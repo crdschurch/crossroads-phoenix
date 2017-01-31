@@ -6,7 +6,7 @@ BUILD_HOST="mp-ci.centralus.cloudapp.azure.com"
 BUILD_USER="teamcity"
 BUILD_AT="/tmp/edeliver/crossroads_phoenix/builds"
 
-RELEASE_DIR="$BUILD_AT/rel/$APP"
+RELEASE_DIR="$BUILD_AT/_build/$TARGET_MIX_ENV/rel/$APP"
 
 STAGING_HOSTS="contentint.crossroads.net"
 STAGING_USER="teamcity"
@@ -20,4 +20,13 @@ pre_erlang_get_and_update_deps() {
       ln -sfn '$_prod_secret_path' '$BUILD_AT/apps/$APP/config/prod.secret.exs'
     "
   fi
+  set -e
+  cd $BUILD_AT/apps/$APP
+  mkdir -p priv/static
+
+  npm install
+
+  npm run deploy
+
+  APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
 }
