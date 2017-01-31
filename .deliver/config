@@ -20,13 +20,17 @@ pre_erlang_get_and_update_deps() {
       ln -sfn '$_prod_secret_path' '$BUILD_AT/apps/$APP/config/prod.secret.exs'
     "
   fi
-  set -e
-  cd /tmp/edeliver/crossroads_phoenix/builds/apps/$APP
-  mkdir -p priv/static
+  }
 
-  npm install
-
-  npm run deploy
-
-  APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+pre_erlang_clean_compile() {
+  status "Running phoenix.digest" # log output prepended with "----->"
+   __sync_remote " # runs the commands on the build host
+    [ -f ~/.profile ] && source ~/.profile # load profile (optional)
+    set -e # fail if any command fails (recommended)
+    cd '$BUILD_AT/app/$APP' # enter the build directory on the build host (required)
+    npm install 
+    npm run deploy
+    mkdir -p priv/static # required by the phoenix.digest task
+    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+  "
 }
