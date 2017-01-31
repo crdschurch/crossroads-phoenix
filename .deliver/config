@@ -6,7 +6,7 @@ BUILD_HOST="mp-ci.centralus.cloudapp.azure.com"
 BUILD_USER="teamcity"
 BUILD_AT="/tmp/edeliver/crossroads_phoenix/builds"
 
-RELEASE_DIR="$BUILD_AT/apps/$APP/rel/$APP"
+RELEASE_DIR="$BUILD_AT/rel/$APP"
 
 STAGING_HOSTS="contentint.crossroads.net"
 STAGING_USER="teamcity"
