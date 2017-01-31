@@ -22,7 +22,7 @@ This is environment specific, please visit [https://nodejs.org/en/](https://node
   >This project is an [umbrella project](http://elixir-lang.org/getting-started/mix-otp/dependencies-and-umbrella-apps.html#umbrella-projects)
   >which lets us break it into smaller pieces. 
   >The phoenix portion is in the `apps/crossroads_inteface` directory and probably where you will be working most of the time. 
-4. Install Angular dependencies by running the following command in the crossroads_interface/ directory: `npm install`
+4. Install javascript dependencies by running the following command in the crossroads_interface/ directory: `npm install`
 5. Kick of the build and the server: `MIX_ENV=dev mix phoenix.server`
 
   >Windows users will need to run `set MIX_ENV=dev` and then run `mix phoenix.server`
