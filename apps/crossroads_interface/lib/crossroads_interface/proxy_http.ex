@@ -1,4 +1,5 @@
 defmodule CrossroadsInterface.ProxyHttp do
+  require IEx
 
   @api_url Application.get_env(:crossroads_interface, :api_url)
   @content_url Application.get_env(:crossroads_content, :content_server)
@@ -15,9 +16,5 @@ defmodule CrossroadsInterface.ProxyHttp do
   """
   def gateway_get(path, headers) do
     HTTPoison.get("#{@api_url}#{path}", headers, [recv_timeout: :infinity])
-  end
-
-  def content_get(path, headers) do
-    HTTPoison.get("#{@content_url}#{path}", headers, [recv_timeout: :infinity])
   end
 end

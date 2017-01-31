@@ -3,6 +3,8 @@ var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 
+const { CheckerPlugin } = require('awesome-typescript-loader')
+
 var endpoint = {
   url: 'http://localhost:49380'
 };
@@ -10,7 +12,8 @@ var endpoint = {
 var environmentVars = require(path.resolve(__dirname, 'environment.config.js'));
 var definePlugin = new webpack.DefinePlugin(environmentVars.get());
 
-module.exports = [{
+module.exports = [
+  {
   entry: {
     app: ["./web/static/css/main.scss", "./web/static/js/app.js"],
     childcare: './web/static/js/app/childcare_dashboard/childcareDashboard.module.js',
@@ -95,6 +98,7 @@ module.exports = [{
     ]
   },
   plugins: [
+    //new CheckerPlugin(),
     new ExtractTextPlugin({
       filename: "css/main.css",
       disable: false,
@@ -110,5 +114,7 @@ module.exports = [{
       output: { ascii_only: true }
     })
 
-  ]
-}, require('./web/static/js/angular2-webpack-phoenix/webpack.config.js')];
+  ]},
+  require('./node_modules/crds-connect/webpack.config.js'),
+  //require('./node_modules/angular2-phoenix/webpack.config.js')
+];

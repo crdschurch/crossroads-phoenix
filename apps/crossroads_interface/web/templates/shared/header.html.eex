@@ -2,7 +2,6 @@
   <div class="overlay-container"></div>
   <!-- Brand Bar -->
 
-  <!-- <ng-include src="'templates/brand-bar.html'"></ng-include> -->
   <%= render CrossroadsInterface.SharedView, "brand_bar.html" %>
   <div id="menu" class="menu">
     <div class="container">
@@ -74,25 +73,29 @@
             <ul class="pull-right navbar--login list-unstyled hidden-xs hidden-sm">
 
               <!-- TODO: Show if user is not logged in -->
-              <li class="" data-toggle="dropdown" >
-                <button class="btn btn-standard" id="form-toggle" ng-click="toggleDesktopLogin(); passwordPrefix='login-dropdown'">
+              <li class="" >
+                <button class="btn btn-standard dropdown-toggle"
+                        data-toggle="dropdown"
+                        id="login-form-toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false">
                   <span>Sign In</span>
                 </button>
-              </li>
-              <li>
-                <ul class="navbar--login__dropdown list-unstyled col-md-3 soft-top soft-sides" 
+                <ul class="navbar--login__dropdown list-unstyled col-md-3 soft-top soft-sides dropdown-menu"
                     role="menu" 
-                    aria-labelledby="dropdownMenu1" 
-                    ng-class="{toggleOpen: loginShow}">
+                    aria-labelledby="dropdownMenu1">
                   <li role="presentation">
                     <div class="navbar--register__container">
                       <div class="dd_menu">
                         <!-- TODO: Create some reusable Login form -->
+                        <%= render CrossroadsInterface.SharedView, "login_register_form.html", %{content_blocks: @content_blocks, conn: @conn} %>
                         <!-- <login-form register-url="register"></login-form> -->
                       </div>
                     </div>
                   </li>
                 </ul>
+              </li>
+              <li>
               </li>
             </ul>
 

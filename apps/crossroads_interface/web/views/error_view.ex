@@ -1,12 +1,11 @@
 defmodule CrossroadsInterface.ErrorView do
   use CrossroadsInterface.Web, :view
-
+  require IEx
   alias CrossroadsContent.Pages
- 
+
   def render("404.html", assigns) do
-    #conn = assigns[:conn]
-    #params = conn.query_string
-    #headers = conn.req_headers
+    conn = assigns[:conn]
+    #params = conn.query_stringL #headers = conn.req_headers
     #case Pages.get_page(conn.request_path <> "/", false) do
       #{:ok, 200, %{ "pages" => [first | rest]}} ->
         #if Map.has_key?(first, "content") do
@@ -19,6 +18,8 @@ defmodule CrossroadsInterface.ErrorView do
         #end
       #{_, _, body} -> render("500.html", assigns)
     #end
+    # Fall through to the legacy crds-angular appliction and let
+    # it handle the route.
     render("index.html", assigns)
   end
 

@@ -1,0 +1,23 @@
+# .deliver/config
+
+APP="crossroads_interface"
+
+BUILD_HOST="mp-ci.centralus.cloudapp.azure.com"
+BUILD_USER="teamcity"
+BUILD_AT="/tmp/edeliver/crossroads_phoenix/builds"
+
+RELEASE_DIR="$BUILD_AT/apps/$APP/rel/$APP"
+
+STAGING_HOSTS="mp-ci.centralus.cloudapp.azure.com"
+STAGING_USER="teamcity"
+DELIVER_TO="/home/web"
+
+# For *Phoenix* projects, symlink prod.secret.exs to our tmp source
+pre_erlang_get_and_update_deps() {
+  local _prod_secret_path="/home/builder/prod.secret.exs"
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    __sync_remote "
+      ln -sfn '$_prod_secret_path' '$BUILD_AT/config/prod.secret.exs'
+    "
+  fi
+}

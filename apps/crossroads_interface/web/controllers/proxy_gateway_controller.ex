@@ -1,25 +1,25 @@
 defmodule CrossroadsInterface.ProxyGatewayController do
   use CrossroadsInterface.Web, :controller
   @moduledoc """
-  Pass traffic from the frontend to the correct endpoint.
-  Either the gateway or the content server.
+  Pass traffic from the frontend to the correct gateway endpoint.
   """
-
+  require IEx
 
   alias CrossroadsInterface.ProxyHelpers
   alias CrossroadsInterface.ProxyHttp
 
-  def handle_gateway_proxy(%{:method => "GET", :request_path => request_path} = conn, _params) do
+  def handle_gateway_proxy(%{:method => "GET", :request_path => request_path} = conn, params) do
     request_path = ProxyHelpers.strip_proxy_path(request_path)
-    ProxyHttp.gateway_get(request_path, conn.req_headers)
-    |> match_response
+    request_params = ProxyHelpers.build_param_string(params)
+    ProxyHttp.gateway_get(request_path <> request_params, conn.req_headers)
+    |> ProxyHelpers.match_response
     |> send_response(conn)
   end
 
   def handle_gateway_proxy(%{:method => "POST", :request_path => request_path} = conn, params) do
     request_path = ProxyHelpers.strip_proxy_path(request_path)
     ProxyHttp.gateway_post(request_path, params, conn.req_headers)
-    |> match_response
+    |> ProxyHelpers.match_response
     |> send_response(conn)
   end
 
@@ -27,15 +27,6 @@ defmodule CrossroadsInterface.ProxyGatewayController do
     conn
     |> put_resp_content_type("application/json")
     |> send_resp(200, "")
-  end
-
-  defp match_response(resp) do
-    case resp do
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body}} -> 
-        {status_code, body}
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {500, reason}
-    end
   end
 
   defp send_response({code, data}, conn) do

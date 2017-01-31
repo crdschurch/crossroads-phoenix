@@ -2,7 +2,12 @@
 <html lang="en">
   <head>
     <script·src="https://use.typekit.net/ccb3vpa.js"></script>
-    <link rel="stylesheet" href="<%= static_path(assigns[:conn], "/css/main.css") %>">
+    <script>
+      try {
+        Typekit.load({·async:·true·});
+      } catch(e) {} 
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
   </head>
 <body class="crds-legacy-styles">
   <%= raw(assigns[:payload]) %>

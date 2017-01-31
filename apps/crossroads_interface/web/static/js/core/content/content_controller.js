@@ -5,4 +5,5 @@ module.exports = function($rootScope, $scope, $state, $stateParams, $log, Conten
   $scope.page = ContentPageService.page;
   $scope.pageContent = ContentPageService.page.content;
   $scope.sidebarPage = ContentPageService.page.sidebarContent;
+
 };

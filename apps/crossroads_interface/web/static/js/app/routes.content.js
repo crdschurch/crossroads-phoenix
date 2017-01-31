@@ -62,7 +62,7 @@
 
                     return originalPromise;
                   }
-
+                  // route wasn't found in the CMS... ask Phoenix about it
                   var notFoundPromise = Page.get({url: '/page-not-found/'}).$promise;
 
                   notFoundPromise.then(function(promise) {

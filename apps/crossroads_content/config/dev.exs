@@ -1,5 +1,5 @@
 use Mix.Config
 
 config :crossroads_content,
-  content_server: System.get_env("CRDS_CMS_ENDPOINT"),
+  content_server: "https://contentint.crossroads.net/",
   http: HTTPoison

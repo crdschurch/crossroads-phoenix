@@ -1,4 +1,5 @@
 defmodule CrossroadsInterface.ProxyHelpers do
+  require IEx
   @moduledoc """
     Utility methods for the proxy controller
   """
@@ -23,10 +24,30 @@ defmodule CrossroadsInterface.ProxyHelpers do
   end
 
   @doc """
+  Builds a GET query param string from a Map
+
+  ## Examples
+
+    iex> params = %{ "another" => "yetanother", "link" => "/" }
+    iex> CrossroadsInterface.ProxyHelpers.build_param_string(params)
+    "?another=yetanother&link=/"
+  """
+  @spec build_param_string(map) :: String.t 
+  def build_param_string(params) do
+    param_string = params
+                  |> Map.to_list
+                  |> Enum.map(fn(p) -> "#{elem(p, 0)}=#{elem(p,1)}" end)
+                  |> Enum.join("&")
+    "?#{param_string}"
+  end
+
+  @doc """
   Match the response appropriatly.
   """
   def match_response(resp) do
     case resp do
+      {:ok, %HTTPoison.Response{status_code: 404, body: body}} ->
+        {404, "{\"eror\", \"route does not exist\"}"}
       {:ok, %HTTPoison.Response{status_code: status_code, body: body}} -> 
         {status_code, body}
       {:error, %HTTPoison.Error{reason: reason}} ->
