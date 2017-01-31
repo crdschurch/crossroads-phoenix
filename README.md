@@ -35,6 +35,7 @@ This is environment specific, please visit [https://nodejs.org/en/](https://node
 - [x] Setup the Phoenix app to proxy requests the .NET server.
 - [ ] Setup the Phoenix app to proxy CMS request to the CMS Server.
 - [ ] Pull in all the latest changes to crds-angular client side codebase.
+- [ ] Determine how to reliably route between MicroClients
 - [ ] Create a future proof, framework agnostic, shareable header and footer
 - [ ] Write a guide for adding/editing a microclient 
 - [ ] Deployment

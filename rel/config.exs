@@ -38,8 +38,8 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
-release :crossroads_phoenix do
-  set version: "0.1.0"
+release :crossroads_interface do
+  set version: current_version(:chat_web)
   set applications: [
     crossroads_authentication: :permanent,
     crossroads_content: :permanent,
