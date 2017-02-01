@@ -23,7 +23,16 @@ defmodule CrossroadsInterface.ProxyGatewayControllerTest do
     with_mock ProxyHttp, [gateway_get: fn(path, headers) -> CrossroadsInterface.GatewayProxyMock.gateway_get(path, headers) end] do
       conn = get conn, "/proxy/gateway/api/authenticated"
       assert json_response(conn, 200) == %{"abcdefg" => 1}
-      assert called ProxyHttp.gateway_get("api/authenticated", conn.req_headers)
+      assert called ProxyHttp.gateway_get("api/authenticated?", conn.req_headers)
     end
   end
+
+  test "GET /proxy/gateway/api/authenticated?with_params=true", %{conn: conn} do
+    with_mock ProxyHttp, [gateway_get: fn(path, headers) -> CrossroadsInterface.GatewayProxyMock.gateway_get(path, headers) end] do
+      conn = get conn, "/proxy/gateway/api/authenticated?with_params=true"
+      assert json_response(conn, 200) == %{"abcdefg" => 1}
+      assert called ProxyHttp.gateway_get("api/authenticated?with_params=true", conn.req_headers)
+    end
+  end
+
 end

@@ -1,6 +1,6 @@
 defmodule CrossroadsInterface.ProxyHttp do
   require IEx
-
+  #TODO: pull this into it's own GenServer
   @api_url Application.get_env(:crossroads_interface, :api_url)
   @content_url Application.get_env(:crossroads_content, :content_server)
 

@@ -12,6 +12,7 @@ defmodule CrossroadsInterface.AngularController do
         "/js/angular2-webpack/vendor.bundle.js",
         "/js/angular2-webpack/main.bundle.js",
       ], "css_files": [
+        "/css/main.css",
         "/js/angular2-webpack/main.css"
       ], "page_type": "no_sidebar"}
   end

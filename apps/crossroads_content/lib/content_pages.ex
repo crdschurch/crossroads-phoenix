@@ -32,6 +32,11 @@ defmodule CrossroadsContent.Pages do
     GenServer.call(__MODULE__, {:page, url, stage})
   end
 
+  @spec get(String.t, map) :: {:ok | :error, number, map}
+  def get(url, params) do
+    GenServer.call(__MODULE__, {:all, url, params})
+  end
+
   @doc false
   def start_link(opts \\ []) do
     GenServer.start_link(__MODULE__, :ok, opts)
@@ -63,6 +68,12 @@ defmodule CrossroadsContent.Pages do
   @doc false
   def handle_call({:page, url, true}, _from, state) do
     path = "Page/?link=#{url}&stage=Stage"
+    make_call(path, state)
+  end
+
+  @doc false
+  def handle_call({:all, url, params}, _from, state) do
+    path = "#{url}?#{URI.encode_query(params)}"
     make_call(path, state)
   end
 

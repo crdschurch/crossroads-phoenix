@@ -3,27 +3,23 @@ defmodule CrossroadsInterface.ProxyGatewayController do
   @moduledoc """
   Pass traffic from the frontend to the correct gateway endpoint.
   """
-  require IEx
 
   alias CrossroadsInterface.ProxyHelpers
   alias CrossroadsInterface.ProxyHttp
 
-  def handle_gateway_proxy(%{:method => "GET", :request_path => request_path} = conn, params) do
-    request_path = ProxyHelpers.strip_proxy_path(request_path)
-    request_params = ProxyHelpers.build_param_string(params)
-    ProxyHttp.gateway_get(request_path <> request_params, conn.req_headers)
+  def handle_gateway_proxy(%{:method => "GET", :request_path => "/proxy/gateway/" <> request_path} = conn, params) do
+    ProxyHttp.gateway_get(request_path <> "?" <> URI.encode_query(params), conn.req_headers)
     |> ProxyHelpers.match_response
     |> send_response(conn)
   end
 
-  def handle_gateway_proxy(%{:method => "POST", :request_path => request_path} = conn, params) do
-    request_path = ProxyHelpers.strip_proxy_path(request_path)
+  def handle_gateway_proxy(%{:method => "POST", :request_path => "/proxy/gateway/" <> request_path} = conn, params) do
     ProxyHttp.gateway_post(request_path, params, conn.req_headers)
     |> ProxyHelpers.match_response
     |> send_response(conn)
   end
 
-  def handle_gateway_proxy(%{:method => "PUT", :request_path => request_path} = conn, params) do
+  def handle_gateway_proxy(%{:method => "PUT", :request_path => "/proxy/gateway" <> request_path} = conn, params) do
     conn
     |> put_resp_content_type("application/json")
     |> send_resp(200, "")
