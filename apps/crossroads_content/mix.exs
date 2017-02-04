@@ -31,7 +31,7 @@ defmodule CrossroadsContent.Mixfile do
   end
 
   def append_revision(version) do
-    "#{version}+#{revision}"
+    "#{version}+#{revision()}"
   end
 
   defp revision() do

@@ -33,7 +33,7 @@ This is environment specific, please visit [https://nodejs.org/en/](https://node
 - [ ] Find a way to run all tests and submodule tests from the root of the crossroads-interface with NPM and webpack(?)
 - [ ] Handle authentication more globally. Maybe the Phoneix server handles it and uses Session storage? Maybe we just create a framework and add it to the example JS repo.
 - [x] Setup the Phoenix app to proxy requests the .NET server.
-- [ ] Setup the Phoenix app to proxy CMS request to the CMS Server.
+- [x] Setup the Phoenix app to proxy CMS request to the CMS Server.
 - [ ] Pull in all the latest changes to crds-angular client side codebase.
 - [ ] Determine how to reliably route between MicroClients
 - [ ] Create a future proof, framework agnostic, shareable header and footer
