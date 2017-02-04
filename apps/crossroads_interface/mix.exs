@@ -13,7 +13,7 @@ defmodule CrossroadsInterface.Mixfile do
   end
 
   def append_revision(version) do
-    "#{version}+#{revision}"
+    "#{version}+#{revision()}"
   end
 
   defp revision() do
@@ -27,7 +27,7 @@ defmodule CrossroadsInterface.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {CrossroadsInterface, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :crossroads_content]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :crossroads_content]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,8 +38,9 @@ defmodule CrossroadsInterface.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.1.3"},
-     {:phoenix_html, "~> 2.3"},
+    [{:phoenix, "~> 1.2.0"},
+     {:phoenix_html, "~> 2.6"},
+     {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},

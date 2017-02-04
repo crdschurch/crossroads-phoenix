@@ -3,7 +3,6 @@ var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 
-const { CheckerPlugin } = require('awesome-typescript-loader')
 
 var endpoint = {
   url: 'http://localhost:49380'
@@ -73,7 +72,7 @@ module.exports = [
       loader: ExtractTextPlugin.extract({
         fallbackLoader: "style-loader",
         loader: "css-loader!sass-loader?includePaths[]=" + __dirname + "/node_modules!postcss-loader",
-        publicPath: "/css"
+        //publicPath: "/css"
       })
     },
     {
@@ -81,24 +80,34 @@ module.exports = [
       loader: 'url-loader?limit=10000'
     },
     {
-      test: /\.woff$/,
+      test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'url-loader?limit=10000&minetype=application/font-woff'
     },
     {
-      test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'file-loader'
+      test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
+      loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
+    },
+    {
+      test: /\.(eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'file-loader',
+    },
+    {
+      test:/\.svg(\?v=\d+\.\d+\.\d+)?$/,
+      include: [ path.resolve(__dirname, "web/static/fonts")],
+      loaders: 'url-loader?limit=10000&mimetype=image/svg+xml',
     },
     {
       test: /\.svg$/,
+      include: [ path.resolve(__dirname, "web/static/icons")], 
       loader: 'svg-sprite-loader?' + JSON.stringify({angularBaseWorkaround: true })
-    }],
+    }
+    ],
     noParse: [
       /video\.js$|videosjs\-chromecast\.js/,
       /videojs5-hlsjs-source-handler/,
     ]
   },
   plugins: [
-    //new CheckerPlugin(),
     new ExtractTextPlugin({
       filename: "css/main.css",
       disable: false,
@@ -106,15 +115,15 @@ module.exports = [
     }),
     new CopyWebpackPlugin([{ from: "./web/static/assets" }]),
     definePlugin,
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false,
-      compress: { warnings: false },
-      sourceMap: true,
-      mangle: false,
-      output: { ascii_only: true }
-    })
+    /*new webpack.optimize.UglifyJsPlugin({*/
+      //comments: false,
+      //compress: { warnings: false },
+      //sourceMap: true,
+      //mangle: false,
+      //output: { ascii_only: true }
+    /*})*/
 
   ]},
   //require('./node_modules/crds-connect/webpack.config.js'),
-  require('./node_modules/angular2-phoenix/webpack.config.js')
+  //require('./node_modules/angular2-phoenix/webpack.config.js')
 ];

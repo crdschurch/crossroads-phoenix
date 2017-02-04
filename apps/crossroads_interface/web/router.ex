@@ -7,11 +7,11 @@ defmodule CrossroadsInterface.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug CrossroadsInterface.Plug.Meta
-    plug CrossroadsInterface.Plug.ContentBlocks
-    plug CrossroadsInterface.Plug.PageType
-    plug CrossroadsInterface.Plug.Payload
-    plug CrossroadsInterface.Plug.BaseHref
+#    plug CrossroadsInterface.Plug.Meta
+    #plug CrossroadsInterface.Plug.ContentBlocks
+    #plug CrossroadsInterface.Plug.PageType
+    #plug CrossroadsInterface.Plug.Payload
+    #plug CrossroadsInterface.Plug.BaseHref
   end
 
   pipeline :api do
