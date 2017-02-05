@@ -36,7 +36,8 @@ defmodule CrossroadsContent.Mixfile do
   end
 
   defp revision() do
-    System.cmd("git", ["rev-parse", "--short", "HEAD"])
+    "git"
+    |> System.cmd(["rev-parse", "--short", "HEAD"])
     |> elem(0)
     |> String.rstrip
   end
