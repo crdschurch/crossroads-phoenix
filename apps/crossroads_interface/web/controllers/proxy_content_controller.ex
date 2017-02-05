@@ -54,13 +54,13 @@ defmodule CrossroadsInterface.ProxyContentController do
     conn |> send_response(code, Poison.encode(body))
   end
 
-  def send_response(conn, code, {:ok, data } = body) do
+  def send_response(conn, code, {:ok, data} = body) do
   conn
     |> put_resp_content_type("application/json")
     |> send_resp(code, data)
   end
 
-  def send_response(conn, code, {:error, _data } = body) do
+  def send_response(conn, code, {:error, _data} = body) do
   conn
     |> put_resp_content_type("application/json")
     |> send_resp(code, "{\"pages\": []}") #TODO: what to send when encoding fails?

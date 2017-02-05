@@ -8,7 +8,6 @@ defmodule CrossroadsContent.Pages do
   require IEx
 
   @base_url Application.get_env(:crossroads_content, :content_server, "https://contentint.crossroads.net")
-  @http Application.get_env(:crossroads_content, :http)
 
   @spec get_site_config(number) :: {:ok | :error, number, map}
   def get_site_config(id) do
@@ -88,7 +87,7 @@ defmodule CrossroadsContent.Pages do
 
   @doc false
   defp make_call(path, state) do
-    response = case @http.get("#{@base_url}/api/#{path}",["Accept": "application/json"], [recv_timeout: :infinity]) do
+    response = case HTTPoison.get("#{@base_url}/api/#{path}",["Accept": "application/json"], [recv_timeout: :infinity]) do
       {:ok, %HTTPoison.Response{status_code: 404, body: body}} ->
         {:error, 404, Poison.decode!(body)}
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
