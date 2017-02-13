@@ -94,7 +94,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/js/legacy/core.css") %>">
 
   </head>
 
