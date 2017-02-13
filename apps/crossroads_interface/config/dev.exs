@@ -21,6 +21,7 @@ config :crossroads_interface, CrossroadsInterface.Endpoint,
 config :crossroads_interface, CrossroadsInterface.Endpoint,
   live_reload: [
     patterns: [
+      ~r{priv/static/js/legacy/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},

@@ -149,32 +149,32 @@
     <script type="text/javascript" src="https://malsup.github.io/jquery.cycle2.scrollVert.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
     
-    <script src="<%= static_path(@conn, "/js/ang.js") %>"></script>
-    <script src="<%= static_path(@conn, "/js/core.js")%>" 
+    <script src="<%= static_path(@conn, "/js/legacy/ang.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/legacy/core.js")%>" 
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/common.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/common.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/profile.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/profile.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/trips.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/trips.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/camps.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/camps.js")%>"
             type="text/javascript" defer></script>
-    <script src="<%= static_path(@conn, "/js/give.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/give.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/media.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/media.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/search.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/search.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/govolunteer.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/govolunteer.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/formbuilder.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/formbuilder.js")%>"
             type="text/javascript"  defer> </script>
-    <script src="<%= static_path(@conn, "/js/childcare.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/childcare.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/formlybuilder.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/formlybuilder.js")%>"
             type="text/javascript"  defer></script>
-    <script src="<%= static_path(@conn, "/js/main.js")%>"
+    <script src="<%= static_path(@conn, "/js/legacy/main.js")%>"
           type="text/javascript"  defer></script>
   </body>
 </html>

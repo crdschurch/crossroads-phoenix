@@ -10,21 +10,22 @@ defmodule CrossroadsInterface.LegacyController do
 
   def index(conn, _params) do
     render conn, "index.html", %{ "js_files": [
-        "/js/ang.js",
-        "/js/core.js",
-        "/js/common.js",
-        "/js/profile.js",
-        "/js/trips.js",
-        "/js/camps.js",
-        "/js/media.js",
-        "/js/search.js",
-        "/js/govolunteer.js",
-        "/js/formbuilder.js",
-        "/js/childcare.js",
-        "/js/formlybuilder.js",
-        "/js/main.js"
+        "/js/legacy/ang.js",
+        "/js/legacy/core.js",
+        "/js/legacy/common.js",
+        "/js/legacy/profile.js",
+        "/js/legacy/trips.js",
+        "/js/legacy/camps.js",
+        "/js/legacy/media.js",
+        "/js/legacy/search.js",
+        "/js/legacy/govolunteer.js",
+        "/js/legacy/formbuilder.js",
+        "/js/legacy/childcare.js",
+        "/js/legacy/formlybuilder.js",
+        "/js/legacy/main.js"
       ], "css_files": [
-       "/css/main.css"
+       "/css/main.css",
+       "/js/legacy/core.css"
       ], "base_href": "/"}
   end
 end
