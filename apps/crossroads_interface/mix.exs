@@ -3,7 +3,7 @@ defmodule CrossroadsInterface.Mixfile do
 
   def project do
     [app: :crossroads_interface,
-     version: System.get_env("CURRENT_TIMESTAMP") || "0.0.1",
+     version: "0.0.1+" <> System.get_env("CURRENT_TIMESTAMP") || "0.0.1",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
