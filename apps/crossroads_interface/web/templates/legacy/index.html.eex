@@ -85,6 +85,7 @@
         <span ng-message="invalidZip"><span dynamic-content="$root.MESSAGES.invalidZip.content | html"></span></span>
     </script>
     <ng-include src="'<%= static_path(@conn, "/js/legacy/cr.svg") %>'"></ng-include>
+    <!-- <ng-include src="<%= static_path(@conn, "/js/legacy/cr.svg") %>"></ng-include> -->
     <!-- prerender.io - Prevent caching before page is rendered-->
     <script>
         window.prerenderReady = false;
