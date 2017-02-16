@@ -84,7 +84,7 @@
         <span ng-message="naturalNumber"><span dynamic-content="$root.MESSAGES.invalidDonationAmount.content | html"></span></span>
         <span ng-message="invalidZip"><span dynamic-content="$root.MESSAGES.invalidZip.content | html"></span></span>
     </script>
-    <ng-include src="'/assets/cr.svg'"></ng-include>
+    <ng-include src="'<%= static_path(@conn, "js/legacy/cr.svg %>'"></ng-include>
     <!-- prerender.io - Prevent caching before page is rendered-->
     <script>
         window.prerenderReady = false;
@@ -139,7 +139,7 @@
   </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="<%= static_path(@conn, "/js/load-image.all.min.js") %>" defer> </script>
+    <script type="text/javascript" src="<%= static_path(@conn, "/js/legacy/load-image.all.min.js") %>" defer> </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.js" defer></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -147,7 +147,7 @@
     <script type="text/javascript" src="https://malsup.github.io/jquery.cycle2.js"></script>
     <script type="text/javascript" src="https://malsup.github.io/jquery.cycle2.scrollVert.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
-    
+
     <script src="<%= static_path(@conn, "/js/legacy/ang.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/legacy/core.js")%>" 
             type="text/javascript"  defer></script>
