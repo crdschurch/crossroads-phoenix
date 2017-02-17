@@ -57,7 +57,7 @@ exports.config = {
       ignore: [/web\/static\/vendor/]
     },
     copycat: {
-      "fonts": ["node_modules/bootstrap-sass/assets/fonts/bootstrap"]
+      "assets": ["node_modules/bootstrap-sass/assets/fonts/bootstrap"]
     },
     sass: {
       options: {
