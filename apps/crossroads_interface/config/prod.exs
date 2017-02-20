@@ -20,6 +20,7 @@ config :crossroads_interface, CrossroadsInterface.Endpoint,
     certfile: System.get_env("SSL_CERT_PATH")],
     cacertfile: System.get_env("SSL_INTERMEDIATE_PATH"),
   cache_static_manifest: "priv/static/manifest.json",
+  root: ".",
   server: true
 
 # Do not print debug messages in production
