@@ -71,4 +71,24 @@ defmodule CrossroadsContentPagesTest do
       assert page["id"] == 268
     end
   end
+
+  test "get page, then get cached version" do
+    with_mock HTTPoison, [get: fn(url, _headers, _options) -> FakeHttp.get(url) end] do
+      {result, status, body} = Pages.get_page("/habitat/", true)
+      assert status == 200
+      assert result == :ok
+      page = Enum.at(body["pages"], 0)
+      assert page["id"] == 268
+      assert called HTTPoison.get("https://contentint.crossroads.net//api/Page/?link=/habitat/&stage=Stage", ["Accept": "application/json"], [recv_timeout: :infinity])
+
+      # call again and should not call mock
+      {result, status, body} = Pages.get_page("/habitat/", true)
+      assert status == 200
+      assert result == :ok
+      page = Enum.at(body["pages"], 0)
+      assert page["id"] == 268
+
+      assert called HTTPoison.get("https://contentint.crossroads.net//api/Page/?link=/habitat/&stage=Stage", ["Accept": "application/json"], [recv_timeout: :infinity])
+    end
+  end
 end
