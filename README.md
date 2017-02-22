@@ -24,10 +24,17 @@ This is environment specific, please visit [https://nodejs.org/en/](https://node
   >The phoenix portion is in the `apps/crossroads_interface` directory and probably where you will be working most of the time. 
 
 4. Install javascript dependencies by running the following command in the crossroads_interface/ directory: `npm install`
-5. Kick of the build and the server: `MIX_ENV=dev mix phoenix.server`
+
+5. Copy or link the assets of your microclient into the project: `ln -s $YOUR_DIRECTORY/crds-angular/crossroads.net/assets priv/static/js/legacy`
+
+  >Each microclient will have it's own directory under `crossroads_interface/priv/static/js`.  For crds-angular, it is `legacy`.
+
+6. Kick of the build and the server: `MIX_ENV=dev mix phoenix.server`
 
   >Windows users will need to run `set MIX_ENV=dev` and then run `mix phoenix.server`
   >`MIX_ENV=dev` is necessary because we need some way to tell the Microclients that we are running in the context of our phoenix application. This way webpack will put our build files in the correct assets folder for phoenix to serve. 
+
+>You may be prompted to install rebar3.  If so, select Y to continue.
 
 ## Things still left TODO
 - [ ] Handle authentication more globally. Maybe the Phoneix server handles it and uses Session storage? Maybe we just create a framework and add it to the example JS repo.
