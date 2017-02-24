@@ -16,7 +16,12 @@ erl_crash.dump
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
 
+# Also ignore local micro-clients
+crds-phoenix-local/
+
 node_modules/
 .deliver/releases/
 .deliver/releases/
 /rel/*/**
+.DS_Store
+
