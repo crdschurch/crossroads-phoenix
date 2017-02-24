@@ -1,0 +1,36 @@
+version: '2'
+services:
+  # web:
+  #   build: ./phoenix
+  #   image: crds-phoenix
+  #   container_name: crds-phoenix-container
+  #   ports:
+  #    - "4000:4000"
+  #   volumes:
+  #    - ./:/usr/src/app
+  #   # environment:
+  #   #  - MIX_ENV=dev
+  #   # command: mix phoenix.server
+
+  crds-phoenix:
+    build: .
+    command: sh -c "MIX_ENV=dev mix phoenix.server"
+    image: crds-phoenix-i
+    container_name: crds-phoenix-c
+    ports:
+     - "4000:4000"
+    # volumes:
+    #  - crdsphoenix-data-volume:.
+    environment:
+     - CRDS_CMS_ENDPOINT=${CRDS_CMS_ENDPOINT}
+     - CRDS_API_ENDPOINT=${CRDS_API_ENDPOINT}
+     - CRDS_STREAMSPOT_API_KEY=${CRDS_STREAMSPOT_API_KEY}
+     - CRDS_STREAMSPOT_SSID=${CRDS_STREAMSPOT_SSID}
+     - CRDS_STRIPE_PUBKEY=${CRDS_STRIPE_PUBKEY}
+     - CRDS_ENV=${CRDS_ENV}
+     - CRDS_COOKIE_DOMAIN=${CRDS_COOKIE_DOMAIN}
+     - MIX_ENV=dev
+    # depends_on: 
+    #  - web
+# volumes:
+#   crdsphoenix-data-volume:
