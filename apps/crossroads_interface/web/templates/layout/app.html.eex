@@ -105,5 +105,8 @@
         <script> 
 
     </script>
+
+  <%= render CrossroadsInterface.SharedView, "footer.html", assigns %>
+  
   </body>
 </html>
