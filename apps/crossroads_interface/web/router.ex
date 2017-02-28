@@ -36,8 +36,4 @@ defmodule CrossroadsInterface.Router do
     get "/", LegacyController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", CrossroadsInterface do
-  #   pipe_through :api
-  # end
 end

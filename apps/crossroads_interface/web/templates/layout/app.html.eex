@@ -64,7 +64,7 @@
     </script>
     <%= if assigns[:css_files] do %>
       <%= for script_file <- @css_files do %>
-        <script src="<%= static_path(@conn, script_file)%>" > </script>
+        <link href="<%= static_path(@conn, script_file)%>" type="text/css" rel="stylesheet" > </script>
       <% end %>
     <% end %>
 
@@ -81,6 +81,9 @@
           '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MFS4MJ');</script>
   <!-- End Google Tag Manager -->
+
+  
+  <%= render CrossroadsInterface.SharedView, "header.html", assigns %>
 
   <!-- NO SIDEBAR LAYOUT -->
   <div class="container main animated fadeIn">
