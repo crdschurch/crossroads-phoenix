@@ -31,6 +31,8 @@ defmodule CrossroadsInterface.Router do
     
     forward "/angular2", AngularController, :index
 
+    forward "/connect", CrdsConnectController, :index
+
     post "/login", AuthenticationController, :login
 
     get "/", LegacyController, :index
