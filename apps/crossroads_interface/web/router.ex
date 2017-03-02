@@ -33,7 +33,7 @@ defmodule CrossroadsInterface.Router do
 
     post "/login", AuthenticationController, :login
 
-    get "/", LegacyController, :index
+    forward "/", LegacyController, :index
   end
 
 end
