@@ -23,4 +23,4 @@ RUN npm install -g bower
 COPY . /crossroads-phoenix
 
 # Should this be copy or symbolic links?
-COPY ./local /crossroads-phoenix/apps/crossroads_interface/priv/static/js
+COPY ./local /microclients

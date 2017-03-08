@@ -2,14 +2,20 @@ version: '3'
 services:
   crds-phoenix:
     build: .
-    command: sh -c "cd /crossroads-phoenix/apps/crossroads_interface && mix deps.get && MIX_ENV=dev mix phoenix.server"
+    command: sh -c 
+        "cd /crossroads-phoenix/apps/crossroads_interface && 
+        rm -rf /crossroads-phoenix/apps/crossroads_interface/priv/static/js && 
+        ln -s /microclients /crossroads-phoenix/apps/crossroads_interface/priv/static/js && 
+        mix deps.get && 
+        MIX_ENV=dev mix phoenix.server"        
     image: crds-phoenix
     container_name: crds-phoenix
     ports:
      - "4000:4000"
     volumes:
      # - ../.:/crossroads-phoenix
-     - C:/temp/new_phoenix/crds-angular/crossroads.net/assets/:/crossroads-phoenix/apps/crossroads_interface/priv/static/js/legacy
+     #- C:/temp/new_phoenix/crds-angular/crossroads.net/assets/:/crossroads-phoenix/apps/crossroads_interface/priv/static/js/legacy
+     - C:/temp/new_phoenix/crds-angular/crossroads.net/assets/:/microclients/legacy
     environment:
      # are all of these necessary if we are building legacy outside of container?
      - CRDS_CMS_ENDPOINT=${CRDS_CMS_ENDPOINT}
