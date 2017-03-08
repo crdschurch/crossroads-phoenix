@@ -28,13 +28,10 @@ defmodule CrossroadsInterface.Router do
     pipe_through :browser
 
     forward "/embed", EmbedController, :index
-    
     forward "/angular2", AngularController, :index
-
     forward "/connect", CrdsConnectController, :index
-
     post "/login", AuthenticationController, :login
-
+    get "/notfound", NotfoundController, :notfound
     forward "/", LegacyController, :index
   end
 
