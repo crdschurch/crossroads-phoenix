@@ -16,6 +16,9 @@ erl_crash.dump
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
 
+# Folder for local copies of Micro Clients
+/local
+
 node_modules/
 .deliver/releases/
 .deliver/releases/
