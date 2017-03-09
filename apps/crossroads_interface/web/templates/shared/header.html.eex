@@ -100,7 +100,7 @@
             </ul>
 
             <!--MAIN NAV MENU-->
-            <%= raw(filter_content_blocks(@content_blocks, "mainNavMenu")["content"]) %>
+            <%= raw(filter_content_blocks(@content_blocks, "mainPhoenixMenu")["content"]) %>
           </div>
         </div><!--/col-->
       </div><!--/row-->
