@@ -6,7 +6,7 @@ defmodule CrossroadsInterface.LegacyController do
   the legacy template
   """
 
-  plug :put_layout, "legacy.html"
+plug :put_layout, "no_header_or_footer.html"
 
   def index(conn, _params) do
     render conn, "index.html", %{ "js_files": [
@@ -16,6 +16,7 @@ defmodule CrossroadsInterface.LegacyController do
         "/js/legacy/profile.js",
         "/js/legacy/trips.js",
         "/js/legacy/camps.js",
+        "/js/legacy/give.js",
         "/js/legacy/media.js",
         "/js/legacy/search.js",
         "/js/legacy/govolunteer.js",

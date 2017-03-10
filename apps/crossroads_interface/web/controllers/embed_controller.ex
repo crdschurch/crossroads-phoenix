@@ -3,6 +3,8 @@ defmodule CrossroadsInterface.EmbedController do
 
   plug CrossroadsInterface.Plug.BaseHref, "/embed"
 
+  plug :put_layout, "no_sidebar.html"
+
   def index(conn, _params) do
 
     render conn, "index.html", %{ "js_files": [ 
@@ -11,6 +13,7 @@ defmodule CrossroadsInterface.EmbedController do
         "/js/embed/app.js"
       ], "css_files": [
         "/js/legacy/core.css"
-      ], "page_type": "no_sidebar"}
+      ]
+    }
   end
 end
