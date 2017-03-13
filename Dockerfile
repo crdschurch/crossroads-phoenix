@@ -20,7 +20,17 @@ RUN apt-get install -y -q nodejs
 RUN echo "{\"allow_root\": true }" > .bowerrc
 
 RUN npm install -g bower
-COPY . /crossroads-phoenix
 
-# Should this be copy or symbolic links?
+# Install dos2unix
+RUN apt-get install -y -q dos2unix
+
+# Copy phoenix and micro clients
+COPY . /crossroads-phoenix
 COPY ./local /microclients
+COPY /crossroads-phoenix/docker-entrypoint.sh /usr/local/bin
+
+RUN dos2unix /usr/local/bin/docker-entrypoint.sh
+
+CMD sh -c "MIX_ENV=dev mix phoenix.server"
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+    
