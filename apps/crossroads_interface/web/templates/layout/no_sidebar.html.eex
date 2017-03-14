@@ -2,7 +2,7 @@
 <html lang="en" ng-app="crossroads">
   <head>
     <%= render CrossroadsInterface.SharedView, "common_head.html", assigns %>
-    <%= render @view_module, "head.html", assigns %>
+    <%= render_existing @view_module, "head.html", assigns %>
   </head>
   <body>
     <%= render CrossroadsInterface.SharedView, "header.html", %{content_blocks: @content_blocks, conn: @conn } %>
@@ -16,6 +16,6 @@
     </div>
     <%= render CrossroadsInterface.SharedView, "footer.html", %{content_blocks: @content_blocks } %>
     <%= render CrossroadsInterface.SharedView, "common_body.html", assigns %>
-    <%= render @view_module, "body.html", assigns %>
+    <%= render_existing @view_module, "body.html", assigns %>
   </body>
 </html>
