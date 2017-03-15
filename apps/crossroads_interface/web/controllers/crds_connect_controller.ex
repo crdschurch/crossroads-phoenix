@@ -11,7 +11,7 @@ defmodule CrossroadsInterface.CrdsConnectController do
   plug :put_layout, "no_sidebar.html"
 
   def index(conn, _params) do
-    render conn, "index.html", %{ "js_files": [
+    render conn, "app_root.html", %{ "js_files": [
         "/js/crds_connect/polyfills.js",
         "/js/crds_connect/vendor.js",
         "/js/crds_connect/app.js"

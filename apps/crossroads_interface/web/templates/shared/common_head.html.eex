@@ -1,10 +1,10 @@
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MFS4MJ');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MFS4MJ');</script>
+    <!-- End Google Tag Manager -->
 
     <style>
         /* Allow angular.js to be loaded in body, hiding cloaked elements until
@@ -18,14 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: none !important;
         }
     </style>
-    <title>
-        <%= @meta_title %>
-    </title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="<%= @meta_description %>">
-    <meta name="fragment" content="!">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
     <link rel="apple-touch-icon" sizes="57x57" href="//crossroads-media.s3.amazonaws.com/images/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="//crossroads-media.s3.amazonaws.com/images/favicon/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="//crossroads-media.s3.amazonaws.com/images/favicon/apple-touch-icon-72x72.png">
@@ -42,32 +35,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="icon" type="image/png" href="//crossroads-media.s3.amazonaws.com/images/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="//crossroads-media.s3.amazonaws.com/images/favicon/manifest.json">
     <link rel="shortcut icon" href="//crossroads-media.s3.amazonaws.com/images/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="//crossroads-media.s3.amazonaws.com/images/favicon/mstile-144x144.png">
-    <meta name="msapplication-config" content="//crossroads-media.s3.amazonaws.com/images/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="prerender-status-code" content="{{meta.statusCode}}">
-
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Site wide og/fb tags -->
-    <meta property="og:site_name" content="<%= @meta_siteconfig_title %>" />
-    <meta property="og:locale" content="<%= @meta_siteconfig_locale %>" />
-
-    <!-- URL specific og/fb tags. Using http://int.crossroads.net/media/single for example data-->
-    <meta property="og:title" content="<%= @meta_title %>" />
-    <meta property="og:url" content="<%= @meta_url %>" />
-    <meta property="og:image" content="<%= @meta_image %>" />
-    <!-- Best if at least 1200x630 pixels -->
-    <meta property="og:description" content="<%= raw(@meta_description) %>" />
-
-    <meta property="og:type" content="<%= @meta_type %>" />
-    <meta property="article:publisher" content="https://www.facebook.com/<%= @meta_siteconfig_facebook %>" />
-
-    <!-- Site wide Twitter tags. Twitter will use og tags for url, title, image and description -->
-    <meta name="twitter:card" content="<%= @meta_card %>">
-    <meta name="twitter:site" content="<%= @meta_siteconfig_twitter %>">
+    <link rel="stylesheet" href="/css/app.css"/>
 
     <style>
         @-webkit-keyframes spinnerRotate {

@@ -1,3 +1,4 @@
+  <%= render CrossroadsInterface.SharedView, "angular_meta_tags.html", assigns %>
   <script>
   (function(d) {
     loadFonts = 1;

@@ -7,7 +7,7 @@ defmodule CrossroadsInterface.EmbedController do
 
   def index(conn, _params) do
 
-    render conn, "index.html", %{ "js_files": [ 
+    render conn, "app_root.html", %{ "js_files": [ 
         "/js/embed/polyfills.js",
         "/js/embed/vendor.js",
         "/js/embed/app.js"

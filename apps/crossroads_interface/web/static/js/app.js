@@ -5,10 +5,17 @@
 //files.keys().forEach(files);
 
 // import socket from "./socket"
-
-export var App = {
-  run: function(){
-    var pastoralCare = document.getElementById("pastoralCare");
-    pastoralCare.addEventListener("click", function() { alert("Hello from Phoenix JavaScript!"); });
-  }
+function run() {
+    test1();
+    alertCMS();
 }
+
+function test1() {
+    var test1 = document.getElementById("test1");
+    test1.addEventListener("click", function(event) {
+        event.preventDefault();
+        alert("Hello from Phoenix JavaScript!");
+    });
+}
+
+window.onload = run;

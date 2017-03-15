@@ -9,7 +9,7 @@ defmodule CrossroadsInterface.LegacyController do
 plug :put_layout, "no_header_or_footer.html"
 
   def index(conn, _params) do
-    render conn, "index.html", %{ "js_files": [
+    render conn, "app_root.html", %{ "js_files": [
         "/js/legacy/ang.js",
         "/js/legacy/core.js",
         "/js/legacy/common.js",
