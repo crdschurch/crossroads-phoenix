@@ -11,11 +11,12 @@
   })(window,document,'script','dataLayer','GTM-MFS4MJ');</script>
   <!-- End Google Tag Manager -->
 
-  <!--Stripe Payment Methods-->
+  <!--Stripe Payment Methods -->
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
   <title>CrdsEmbed</title>
   <base href="/embed">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
   <link rel="apple-touch-icon" sizes="57x57" href="//crossroads-media.s3.amazonaws.com/images/favicon/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="//crossroads-media.s3.amazonaws.com/images/favicon/apple-touch-icon-60x60.png">
@@ -38,25 +39,43 @@
   <meta name="msapplication-config" content="//crossroads-media.s3.amazonaws.com/images/favicon/browserconfig.xml">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <!--<script src="https://use.typekit.net/zjp2efd.js"></script>-->
-  <script src="https://use.fontawesome.com/ccd1aba2f7.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
 
-  <script src="https://use.typekit.net/ccb3vpa.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/css/app.css"/>
 
   <script>
-   WebFontConfig = {
-      typekit: { id: 'ccb3vpa' }
-   };
-
-   (function(d) {
-      var wf = d.createElement('script'), s = d.scripts[0];
-      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
-      s.parentNode.insertBefore(wf, s);
-   })(document);
-</script>
+  (function(d) {
+    loadFonts = 1;
+    if(window.sessionStorage){
+      if(sessionStorage.getItem('useTypekit')==='false'){
+        loadFonts = 0;
+      }
+    }
+    if (loadFonts == 1) {
+        var config = {
+          kitId: 'ccb3vpa',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+="wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s);
+      }
+    }
+  )(document);
+  </script>
+  <style>
+  .wf-loading header { visibility: hidden; }
+  .wf-active header,
+  .wf-inactive header { visibility: visible; }
+  </style>
+  <link rel="stylesheet" href="<%= static_path(@conn, "/js/legacy/core.css") %>">
 </head>
-<body class="inline-giving">
+<body>
   <!-- Google Tag Manager -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFS4MJ"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -94,18 +113,20 @@
   }
   </style>
 
+  <%= render CrossroadsInterface.SharedView, "new_header.html", %{content_blocks: @content_blocks, conn: @conn } %>
+
   <app-root data-iframe-height>
     <div class="preloader-wrapper">
       <svg viewBox="0 0 102 101" class="preloader"><g fill="none" fill-rule="evenodd"><g transform="translate(1 1)" stroke-width="2"><ellipse stroke="#eee" cx="50" cy="49.421" rx="50" ry="49.421"></ellipse><path d="M50 98.842c27.614 0 50-22.127 50-49.42C100 22.125 77.614 0 50 0" stroke-opacity=".631" stroke="#3B6E8F"></path></g></g></svg>
     </div>
   </app-root>
 
-  <script src="<%= static_path(@conn, "/js/embed/polyfills.js")%>"
-          type="text/javascript"  defer></script>
-  <script src="<%= static_path(@conn, "/js/embed/vendor.js")%>"
-          type="text/javascript"  defer></script>
-  <script src="<%= static_path(@conn, "/js/embed/app.js")%>"
-          type="text/javascript"  defer></script>
+  <%= render CrossroadsInterface.SharedView, "footer.html", %{content_blocks: @content_blocks } %>
 
+  <%= if assigns[:js_files] do %>
+      <%= for script_file <- @js_files do %>
+          <script src="<%= static_path(@conn, script_file)%>"></script>
+      <% end %>
+  <% end %>
 </body>
 </html>
