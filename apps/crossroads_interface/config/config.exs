@@ -9,10 +9,10 @@ config :ssl, protocol_version: :"tlsv1.2"
 
 config :crossroads_content,
   http: HTTPoison,
-  content_server: "https://contentint.crossroads.net/"
+  content_server: "/proxy/content"
 
 config :crossroads_interface,
-  api_url: "http://silbervm:49380/"
+  api_url: "/proxy/gateway/"
 
 # Configures the endpoint
 config :crossroads_interface, CrossroadsInterface.Endpoint,
