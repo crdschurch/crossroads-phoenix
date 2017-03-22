@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "build-prod": "./node_modules/brunch/bin/brunch build --production",
+    "watch": "./node_modules/brunch/bin/brunch watch --stdin",
+    "build": "./node_modules/brunch/bin/brunch build"
+  },
   "repository": {},
   "dependencies": {
     "crds-styles": "crdschurch/crds-styles#phoenix",
