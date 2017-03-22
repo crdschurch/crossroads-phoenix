@@ -12,7 +12,7 @@
             display: none !important;
         }
     </style>
-    <title >Crossroads -- Phoenix</title>
+    <title ng-bind="meta.title">Crossroads</title>
     <meta name="fragment" content="!">
     <meta name="description" content="{{meta.description | htmlToPlainText | truncate : 155}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -138,6 +138,7 @@
     </div>
   </div>
 
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="<%= static_path(@conn, "/js/legacy/load-image.all.min.js") %>" defer> </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js" defer></script>
@@ -147,7 +148,7 @@
     <script type="text/javascript" src="https://malsup.github.io/jquery.cycle2.js"></script>
     <script type="text/javascript" src="https://malsup.github.io/jquery.cycle2.scrollVert.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
-
+    
     <script src="<%= static_path(@conn, "/js/legacy/ang.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/legacy/core.js")%>" 
             type="text/javascript"  defer></script>

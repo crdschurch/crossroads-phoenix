@@ -8,16 +8,16 @@ defmodule CrossroadsInterface.CrdsConnectController do
   """
 
   plug CrossroadsInterface.Plug.BaseHref, "/connect"
-  plug :put_layout, "crds_connect.html"
-
-  
+  plug :put_layout, "no_sidebar.html"
 
   def index(conn, _params) do
-    render conn, "index.html", %{ "js_files": [
+    render conn, "app_root.html", %{ "js_files": [
         "/js/crds_connect/polyfills.js",
         "/js/crds_connect/vendor.js",
         "/js/crds_connect/app.js"
-      ], "base_href": "/connect"}
+      ], "css_files": [
+        "/js/legacy/core.css"
+      ]}
   end
 
 end

@@ -15,7 +15,7 @@
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
   <title>CrdsConnect</title>
-  <base href="<%= @base_href %>">
+  <base href="/connect">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
   <link rel="apple-touch-icon" sizes="57x57" href="//crossroads-media.s3.amazonaws.com/images/favicon/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="//crossroads-media.s3.amazonaws.com/images/favicon/apple-touch-icon-60x60.png">
@@ -37,7 +37,7 @@
   <meta name="msapplication-TileImage" content="//crossroads-media.s3.amazonaws.com/images/favicon/mstile-144x144.png">
   <meta name="msapplication-config" content="//crossroads-media.s3.amazonaws.com/images/favicon/browserconfig.xml">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <!--<script src="https://use.typekit.net/zjp2efd.js"></script>-->
   <script src="https://use.fontawesome.com/ccd1aba2f7.js"></script>
 
@@ -88,11 +88,10 @@
     </div>
   </app-root>
 
-  <!-- scripts -->
   <%= if assigns[:js_files] do %>
-    <%= for script_file <- @js_files do %>
-      <script type="text/javascript" src="<%= static_path(@conn, script_file)%>" ></script>
-    <% end %>
+      <%= for script_file <- @js_files do %>
+          <script src="<%= static_path(@conn, script_file)%>"></script>
+      <% end %>
   <% end %>
 
 </body>

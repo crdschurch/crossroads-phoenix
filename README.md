@@ -25,11 +25,20 @@ This is environment specific, please visit [https://nodejs.org/en/](https://node
 
 4. Install javascript dependencies by running the following command in the crossroads_interface/ directory: `npm install`
 
-5. Copy or link the assets of your microclient into the project: `ln -s $YOUR_DIRECTORY/crds-angular/crossroads.net/assets priv/static/js/legacy`
+5. Create a local build for whatever microclient you want to include.  Currently their are microclient branches in the repositories for crds-angular, crds-embed, and crds-connect named: `feature-release/phoenix`.  So for crds-angular, do the following in some local directory $YOUR_DIRECTORY:
+```git clone https://github.com/crdschurch/crds-angular.git
+cd crds-angular
+git checkout feature-release/phoenix
+cd crossroads.net
+npm install
+gulp build
+```
+
+6. Copy or link the assets of your microclient into the project: `ln -s $YOUR_DIRECTORY/crds-angular/crossroads.net/assets priv/static/js/legacy`
 
   >Each microclient will have it's own directory under `crossroads_interface/priv/static/js`.  For crds-angular, it is `legacy`.
 
-6. Kick of the build and the server: `MIX_ENV=dev mix phoenix.server`
+7. Kick of the build and the server: `MIX_ENV=dev mix phoenix.server`
 
   >Windows users will need to run `set MIX_ENV=dev` and then run `mix phoenix.server`
   >`MIX_ENV=dev` is necessary because we need some way to tell the Microclients that we are running in the context of our phoenix application. This way webpack will put our build files in the correct assets folder for phoenix to serve. 
