@@ -9,7 +9,7 @@ config :ssl, protocol_version: :"tlsv1.2"
 
 config :crossroads_content,
   http: HTTPoison,
-  content_server: System.get_env("CRDS_CMS_URL")
+  content_server: System.get_env("CRDS_CMS_ENDPOINT")
 
 config :crossroads_interface,
   api_url: System.get_env("CRDS_API_ENDPOINT")
