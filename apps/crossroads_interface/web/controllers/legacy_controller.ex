@@ -1,5 +1,6 @@
 defmodule CrossroadsInterface.LegacyController do
   use CrossroadsInterface.Web, :controller
+  require IEx
   @moduledoc"""
   This controller is called from the fall through route in the router. 
   The purpose is to handle serving up the 'legacy' angular application using 
@@ -8,8 +9,17 @@ defmodule CrossroadsInterface.LegacyController do
 
 plug :put_layout, "no_header_or_footer.html"
 
+<<<<<<< HEAD
+  def index(conn, %{ "resolve" => "true" }) do
+    conn
+    |> redirect( to: "/notfound")
+  end
+  def index(conn, params) do
+    render conn, "index.html", %{ "js_files": [
+=======
   def index(conn, _params) do
     render conn, "app_root.html", %{ "js_files": [
+>>>>>>> origin/development
         "/js/legacy/ang.js",
         "/js/legacy/core.js",
         "/js/legacy/common.js",
