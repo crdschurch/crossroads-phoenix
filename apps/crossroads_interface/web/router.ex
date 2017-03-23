@@ -27,15 +27,9 @@ defmodule CrossroadsInterface.Router do
   scope "/", CrossroadsInterface do
     pipe_through :browser
 
-    forward "/angular2", AngularController, :index
+    forward "/connect", CrdsConnectController, :index
 
-    post "/login", AuthenticationController, :login
-
-    get "/", LegacyController, :index
+    forward "/", LegacyController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", CrossroadsInterface do
-  #   pipe_through :api
-  # end
 end

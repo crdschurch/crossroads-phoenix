@@ -23,7 +23,7 @@ use Mix.Releases.Config,
 
 environment :dev do
   set dev_mode: true
-  set include_erts: false
+  set include_erts: true
   set cookie: :"r8!lTWka(QML}IW<rwtUSV,?G9yu8/A}.<=}[pZRq.*3H(<3Z}2<Pdg})/s>d0!4"
 end
 

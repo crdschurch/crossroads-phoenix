@@ -24,12 +24,13 @@ defmodule CrossroadsInterface.ErrorView do
   end
 
   def render("500.html", assigns) do
-    conn = assigns[:conn]
-    payload = case Pages.get_page("/servererror/", false) do
-      {:ok, 200, body} -> Enum.at(body["pages"], 0)["content"]
-      {_, _, body} -> "<h2> #{body} </h2>"
-    end
-    render("server_error.html", %{payload: payload, conn: conn})
+    #conn = assigns[:conn]
+    #payload = case Pages.get_page("/servererror/", false) do
+      #{:ok, 200, body} -> Enum.at(body["pages"], 0)["content"]
+      #{_, _, body} -> "<h2> #{body} </h2>"
+    #end
+    #render("server_error.html", %{payload: payload, conn: conn})
+    render("index.html", assigns)
   end
 
   # In case no render clause matches or no

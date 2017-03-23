@@ -12,15 +12,20 @@ config :crossroads_content,
 # with brunch.io to recompile .js and .css sources.
 config :crossroads_interface, CrossroadsInterface.Endpoint,
   http: [port: 4000],
+  https: [port: 4443,
+    otp_app: :crossroads_interface,
+    keyfile: "priv/keys/localhost.key",
+    certfile: "priv/keys/localhost.cert"],
   debug_errors: false,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/webpack/bin/webpack.js", "--watch-stdin", "--progress", "--color"]]
+  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin"]]
 
 # Watch static and templates for browser reloading.
 config :crossroads_interface, CrossroadsInterface.Endpoint,
   live_reload: [
     patterns: [
+      ~r{priv/static/js/legacy/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},
