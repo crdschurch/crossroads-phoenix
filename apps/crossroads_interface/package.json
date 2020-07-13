@@ -1,7 +1,7 @@
 {
   "repository": {},
   "dependencies": {
-    "angular": "1.5.10",
+    "angular": "1.8.0",
     "angular-animate": "1.5.10",
     "angular-bootstrap-confirm": "^2.5.0",
     "angular-bootstrap-npm": "^0.13.1",
